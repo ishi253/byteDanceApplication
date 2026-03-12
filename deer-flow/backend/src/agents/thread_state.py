@@ -53,3 +53,6 @@ class ThreadState(AgentState):
     todos: NotRequired[list | None]
     uploaded_files: NotRequired[list[dict] | None]
     viewed_images: Annotated[dict[str, ViewedImageData], merge_viewed_images]  # image_path -> {base64, mime_type}
+    # Optional long-term summary of earlier turns, used to keep model context small
+    # while preserving full message history for the UI and checkpointer.
+    summary_history: NotRequired[str | None]

@@ -44,6 +44,7 @@ export function MessageList({
   const rehypePlugins = useRehypeSplitWordsIntoSpans(thread.isLoading);
   const updateSubtask = useUpdateSubtask();
   const messages = thread.messages;
+  const summaryHistory = thread.values.summary_history as string | undefined;
   if (thread.isThreadLoading && messages.length === 0) {
     return <MessageListSkeleton />;
   }
@@ -52,6 +53,19 @@ export function MessageList({
       className={cn("flex size-full flex-col justify-center", className)}
     >
       <ConversationContent className="mx-auto w-full max-w-(--container-width-md) gap-8 pt-12">
+        {summaryHistory && (
+          <div className="rounded-xl border border-border/60 bg-muted/40 px-4 py-3 text-xs text-muted-foreground">
+            <div className="mb-1 font-medium text-foreground/80">
+              {t.common.earlierContext || "Earlier context (summarized)"}
+            </div>
+            <MarkdownContent
+              content={summaryHistory}
+              isLoading={false}
+              rehypePlugins={rehypePlugins}
+              className="prose prose-invert max-w-none text-xs"
+            />
+          </div>
+        )}
         {groupMessages(messages, (group) => {
           if (group.type === "human" || group.type === "assistant") {
             return group.messages.map((msg) => {

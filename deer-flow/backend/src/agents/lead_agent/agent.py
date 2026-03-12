@@ -1,7 +1,6 @@
 import logging
 
 from langchain.agents import create_agent
-from langchain.agents.middleware import SummarizationMiddleware
 from langchain_core.runnables import RunnableConfig
 
 from src.agents.lead_agent.prompt import apply_prompt_template
@@ -9,6 +8,9 @@ from src.agents.middlewares.clarification_middleware import ClarificationMiddlew
 from src.agents.middlewares.dangling_tool_call_middleware import DanglingToolCallMiddleware
 from src.agents.middlewares.memory_middleware import MemoryMiddleware
 from src.agents.middlewares.subagent_limit_middleware import SubagentLimitMiddleware
+from src.agents.middlewares.ui_preserving_summarization_middleware import (
+    UiPreservingSummarizationMiddleware,
+)
 from src.agents.middlewares.thread_data_middleware import ThreadDataMiddleware
 from src.agents.middlewares.title_middleware import TitleMiddleware
 from src.agents.middlewares.todo_middleware import TodoMiddleware
@@ -39,46 +41,21 @@ def _resolve_model_name(requested_model_name: str | None = None) -> str:
     return default_model_name
 
 
-def _create_summarization_middleware() -> SummarizationMiddleware | None:
-    """Create and configure the summarization middleware from config."""
+def _create_summarization_middleware() -> UiPreservingSummarizationMiddleware | None:
+    """Create the UI-preserving summarization middleware from config.
+
+    NOTE: In this first iteration, the middleware is a no-op that simply
+    reads configuration. It does not yet mutate messages or call an LLM.
+    This keeps runtime behaviour identical while giving us a safe place
+    to evolve toward dual-history summarization.
+    """
     config = get_summarization_config()
 
     if not config.enabled:
         return None
 
-    # Prepare trigger parameter
-    trigger = None
-    if config.trigger is not None:
-        if isinstance(config.trigger, list):
-            trigger = [t.to_tuple() for t in config.trigger]
-        else:
-            trigger = config.trigger.to_tuple()
-
-    # Prepare keep parameter
-    keep = config.keep.to_tuple()
-
-    # Prepare model parameter
-    if config.model_name:
-        model = config.model_name
-    else:
-        # Use a lightweight model for summarization to save costs
-        # Falls back to default model if not explicitly specified
-        model = create_chat_model(thinking_enabled=False)
-
-    # Prepare kwargs
-    kwargs = {
-        "model": model,
-        "trigger": trigger,
-        "keep": keep,
-    }
-
-    if config.trim_tokens_to_summarize is not None:
-        kwargs["trim_tokens_to_summarize"] = config.trim_tokens_to_summarize
-
-    if config.summary_prompt is not None:
-        kwargs["summary_prompt"] = config.summary_prompt
-
-    return SummarizationMiddleware(**kwargs)
+    # Future iterations can pass config into the middleware constructor.
+    return UiPreservingSummarizationMiddleware()
 
 
 def _create_todo_list_middleware(is_plan_mode: bool) -> TodoMiddleware | None:

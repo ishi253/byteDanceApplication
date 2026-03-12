@@ -40,11 +40,6 @@ export default function ChatPage() {
     isMock,
     onStart: (createdThreadId) => {
       setIsNewThread(false);
-      // Use router.replace so Next.js Router's internal state is updated.
-      // This ensures subsequent "New Chat" clicks are treated as a real
-      // cross-route navigation (actual-id → "new") rather than a no-op
-      // same-path navigation, which was causing stale content to persist.
-      router.replace(`/workspace/chats/${createdThreadId}`);
     },
     onFinish: (state) => {
       if (document.hidden || !document.hasFocus()) {

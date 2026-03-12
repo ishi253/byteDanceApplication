@@ -1,9 +1,11 @@
 import logging
+import os
 
 from langchain.chat_models import BaseChatModel
 
 from src.config import get_app_config, get_tracing_config, is_tracing_enabled
 from src.reflection import resolve_class
+from src.models.dummy import DummyChatModel
 
 logger = logging.getLogger(__name__)
 
@@ -17,6 +19,14 @@ def create_chat_model(name: str | None = None, thinking_enabled: bool = False, *
     Returns:
         A chat model instance.
     """
+    # Optional dev override: when DEERFLOW_DUMMY_LLM=true, always use the local
+    # DummyChatModel instead of calling a remote provider. This is intended for
+    # development builds where no API credits should be consumed.
+    if os.getenv("DEERFLOW_DUMMY_LLM", "").lower() == "true":
+        logger.info("DEERFLOW_DUMMY_LLM enabled – using DummyChatModel instead of remote LLM")
+        model_instance: BaseChatModel = DummyChatModel()
+        return model_instance
+
     config = get_app_config()
     if name is None:
         name = config.models[0].name

@@ -54,7 +54,7 @@ export function ArtifactFileDetail({
   threadId: string;
 }) {
   const { t } = useI18n();
-  const { artifacts, setOpen, select } = useArtifacts();
+  const { artifacts, setOpen, select, deselect } = useArtifacts();
   const isWriteFile = useMemo(() => {
     return filepathFromProps.startsWith("write-file:");
   }, [filepathFromProps]);
@@ -128,24 +128,44 @@ export function ArtifactFileDetail({
       <ArtifactHeader className="px-2">
         <div className="flex items-center gap-2">
           <ArtifactTitle>
-            {isWriteFile ? (
-              <div className="px-2">{getFileName(filepath)}</div>
-            ) : (
-              <Select value={filepath} onValueChange={select}>
-                <SelectTrigger className="border-none bg-transparent! shadow-none select-none focus:outline-0 active:outline-0">
-                  <SelectValue placeholder="Select a file" />
-                </SelectTrigger>
-                <SelectContent className="select-none">
-                  <SelectGroup>
-                    {(artifacts ?? []).map((filepath) => (
-                      <SelectItem key={filepath} value={filepath}>
-                        {getFileName(filepath)}
-                      </SelectItem>
-                    ))}
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
-            )}
+            <Select
+              value={filepathFromProps}
+              onValueChange={(value) => {
+                if (value === "__all__") {
+                  // Show the full artifacts list instead of a single detail view.
+                  deselect();
+                  setOpen(true);
+                  return;
+                }
+                select(value);
+              }}
+            >
+              <SelectTrigger className="border-none bg-transparent! shadow-none select-none focus:outline-0 active:outline-0">
+                <SelectValue placeholder="Select a file" />
+              </SelectTrigger>
+              <SelectContent className="select-none">
+                <SelectGroup>
+                  <SelectItem value="__all__">
+                    {t.common.allArtifacts ?? "All artifacts"}
+                  </SelectItem>
+                  {(artifacts ?? []).map((file) => (
+                    <SelectItem key={file} value={file}>
+                      {getFileName(
+                        file.startsWith("write-file:")
+                          ? (() => {
+                              try {
+                                return decodeURIComponent(new URL(file).pathname);
+                              } catch {
+                                return file;
+                              }
+                            })()
+                          : file,
+                      )}
+                    </SelectItem>
+                  ))}
+                </SelectGroup>
+              </SelectContent>
+            </Select>
           </ArtifactTitle>
         </div>
         <div className="flex min-w-0 grow items-center justify-center">

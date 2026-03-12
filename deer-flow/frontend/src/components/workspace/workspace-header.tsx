@@ -63,18 +63,12 @@ export function WorkspaceHeader({ className }: { className?: string }) {
           <div className="flex items-center justify-between gap-2">
             <div className="ml-2 flex items-center gap-2">
               <MeridianLogo size={18} />
-              {env.NEXT_PUBLIC_STATIC_WEBSITE_ONLY === "true" ? (
-                <Link
-                  href="/"
-                  className="font-serif text-sm tracking-tight text-white/80"
-                >
-                  Meridian
-                </Link>
-              ) : (
-                <span className="cursor-default font-serif text-sm tracking-tight text-white/80">
-                  Meridian
-                </span>
-              )}
+              <Link
+                href="/"
+                className="font-serif text-sm tracking-tight text-white/80"
+              >
+                Meridian
+              </Link>
             </div>
             <SidebarTrigger />
           </div>
