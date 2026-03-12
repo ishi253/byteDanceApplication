@@ -1,0 +1,25 @@
+## Error Type
+Console Error
+
+## Error Message
+The final argument passed to useEffect changed size between renders. The order and size of this array must remain constant.
+
+Previous: [/workspace/chats/ce1dc2df-6869-48f8-8caa-5ced7988351c]
+Incoming: [/workspace/chats/ce1dc2df-6869-48f8-8caa-5ced7988351c, ce1dc2df-6869-48f8-8caa-5ced7988351c]
+
+
+    at useThreadChat (src/components/workspace/chats/use-thread-chat.ts:21:12)
+    at ChatPage (src/app/workspace/chats/[thread_id]/page.tsx:1:1)
+    at <unknown> (src/components/workspace/thread-title.tsx:18:17)
+    at <unknown> (src/app/workspace/chats/[thread_id]/page.tsx:8:1)
+
+## Code Frame
+  19 |   );
+  20 |
+> 21 |   useEffect(() => {
+     |            ^
+  22 |     if (pathname.endsWith("/new")) {
+  23 |       // New chat route – generate a fresh client-side thread id
+  24 |       setIsNewThread(true);
+
+Next.js version: 16.1.6 (Turbopack)
