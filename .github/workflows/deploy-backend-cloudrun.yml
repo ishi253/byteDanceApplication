@@ -1,18 +1,10 @@
 name: Deploy Backend to Cloud Run
 
 on:
-  push:
-    branches:
-      - prod
-    paths:
-      - 'deer-flow/backend/**'
-      - 'deer-flow/docker/Dockerfile.cloudrun'
-      - 'deer-flow/docker/nginx/nginx.cloudrun.conf'
-      - 'deer-flow/scripts/cloudrun-start.sh'
-      - 'deer-flow/cloudbuild.yaml'
-      - 'deer-flow/config.example.yaml'
-      - 'deer-flow/extensions_config.example.json'
-      - 'deer-flow/skills/**'
+  workflow_run:
+    workflows: ["CI"]
+    branches: [prod]
+    types: [completed]
 
 concurrency:
   group: deploy-backend-${{ github.ref }}
@@ -20,6 +12,7 @@ concurrency:
 
 jobs:
   deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
