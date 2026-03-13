@@ -7,7 +7,7 @@ description: Use this skill when the user requests Go-to-Market (GTM) research, 
 
 ## Purpose
 
-Conduct comprehensive Go-to-Market analysis for a given topic. Generate a professional research report with data validation, multi-source cross-reference, and confidence scoring.
+Conduct comprehensive Go-to-Market analysis for a given topic. Generate a professional research report with source-linked data collection, automated fact-checking, multi-source cross-reference, and confidence scoring.
 
 ## Research Plan Template
 
@@ -22,13 +22,15 @@ When given a GTM research topic, decompose into these sub-tasks:
 
 ## Data Validation Rules
 
+- **Every statistic must be stored** via `store_data_point` with source URL, name, and date
 - Cross-reference every statistic with at least 2 sources when possible
 - Flag any data older than 2 years as potentially outdated
+- Run `fact_check` after data collection to detect contradictions and anomalies
 - Assign confidence levels:
-  - 🟢 **High** — 3+ sources or authoritative single source
-  - 🟡 **Medium** — 2 sources
-  - 🔴 **Low** — 1 source only
-- Note contradictions between sources explicitly in the report
+  - 🟢 **High** — 3+ sources, verified by fact_check, no flags
+  - 🟡 **Medium** — 2 sources, or minor flags resolved
+  - 🔴 **Low** — 1 source, unresolved contradiction, or anomaly
+- Note contradictions between sources explicitly with both values and citations
 
 ## Report Format
 
@@ -41,22 +43,101 @@ Output a structured report with these sections:
 5. **Regulatory & Risk Factors**
 6. **Trends & Forward Outlook**
 7. **Strategic Recommendations**
-8. **Methodology & Sources** (with confidence scores)
+8. **Methodology & Sources** (with confidence scores and audit trail)
 
 ## Workflow
 
-1. **Load this skill** at the start of any GTM or market research request.
-2. **Use web search** (and optionally `web_fetch` for full articles) to gather data for each sub-task. Prefer recent and authoritative sources.
-3. **Apply data validation rules** as you collect and cite data.
-4. **Synthesize** into the report format above, including confidence badges (🟢/🟡/🔴) next to key claims where appropriate.
-5. If the user has **uploaded documents** (e.g. industry reports), use RAG tools:
-   - Prefer **vector RAG** (Milvus):
-     - Run `rag_ingest_uploads_vector(thread_id=...)` once after uploads (or after uploads change)
-     - Use `rag_search_vector(thread_id=..., query=...)` for each report section to retrieve relevant passages
-   - Fallback to **BM25** if vector RAG is not configured/available:
-     - Run `rag_ingest_uploads(thread_id=...)` once after uploads (or after uploads change)
-     - Use `rag_search(thread_id=..., query=...)` for each report section to retrieve relevant passages
-   - Quote retrieved passages and cite the `virtual_path` and `chunk_id` in **Methodology & Sources**
+### Step 1: Assess Available Data
+- If user uploaded files, run `list_uploaded_data_files(thread_id=...)`
+- For spreadsheets/CSVs: use `extract_structured_data(...)` to get table data
+- For documents: ingest via RAG (`rag_ingest_uploads_vector` or `rag_ingest_uploads`)
+
+### Step 2: Research with Source Tracking
+For each sub-task (Market Sizing, Competitive, etc.):
+- Use `web_search` and `web_fetch` to gather data
+- Use `rag_search_vector` / `rag_search` to query uploaded documents
+- **For every key statistic or claim**, call `store_data_point(...)` with:
+  - Full source attribution (URL, name, date)
+  - Confidence level based on source authority
+  - Source type: "web", "uploaded", or "derived"
+
+### Step 3: Fact-Check & Review Pass
+After all research sub-tasks complete:
+- Run `fact_check(thread_id=...)` to validate all collected data
+- Review the issues report:
+  - For contradictions: research further to resolve, or note both values
+  - For stale data: search for updated figures
+  - For single-source claims: attempt to find corroborating source
+  - For outliers: verify the anomalous value is accurate
+- Store any corrected values via `store_data_point(...)` with updated source
+- **If subagents are enabled**: delegate the review to `fact-check-reviewer` subagent
+
+### Step 4: Assemble Report with Inline Source Links
+
+**⛔ THIS IS THE MOST IMPORTANT STEP — READ CAREFULLY**
+
+- Call `get_sourced_data(thread_id=...)` to get all verified data points
+- Build each report section using the sourced data
+
+**MANDATORY INLINE CITATION RULES (violations make the report unacceptable):**
+
+1. **Every** dollar figure, percentage, market size, growth rate, or factual claim MUST
+   have a clickable `[citation:Source Name](URL)` link placed **in the same sentence,
+   immediately after the data it supports**.
+
+2. A "References" section at the bottom is fine **in addition** to inline links, but it
+   does NOT replace them. Data in the body **must** be individually linked.
+
+3. If a paragraph contains factual claims but zero inline `[citation:...]()` links,
+   **that paragraph is incomplete** — go back and add them before finalizing.
+
+4. Do NOT write bare numbered references like `[1]`, `[2]` unless they are ALSO
+   clickable links. Numbered references without URLs are useless to the reader.
+
+**CORRECT EXAMPLE ✅ (every data point has an inline link):**
+```
+The global prom dress market was valued at $14.81 billion in 2024
+[citation:Fortune Business Insights](https://www.fortunebusinessinsights.com/prom-dress-market-109102)
+and is projected to reach $22.56 billion by 2032, growing at a 4.4% CAGR
+[citation:Research and Markets](https://www.researchandmarkets.com/reports/6184909).
+Average spending per student is $818
+[citation:Facebook Survey](https://www.facebook.com/100091125789000/posts/856828217364697/).
+```
+
+**WRONG EXAMPLE ❌ (no inline links — sources dumped at the bottom):**
+```
+The global prom dress market was valued at $14.81 billion in 2024 and is projected
+to reach $22.56 billion by 2032. Average spending per student is $818.
+
+References:
+[1] Fortune Business Insights ...
+[2] Research and Markets ...
+```
+
+**SELF-CHECK BEFORE FINALIZING:** Scan every paragraph in the report body. If any
+paragraph has statistics but no `[citation:` links, you have failed this step.
+
+- The `get_sourced_data` response includes a pre-built `citation` field for each data
+  point — use it directly in the report text.
+- Apply confidence badges based on fact-check results:
+  - 🟢 High — verified by 2+ sources, no issues flagged
+  - 🟡 Medium — single source or minor flag (e.g., data from 2024)
+  - 🔴 Low — contradiction unresolved, or significant anomaly
+
+### Step 4b: Validate Mermaid Diagrams
+If the report contains any Mermaid diagrams (market growth charts, competitive
+landscape flowcharts, etc.):
+- Call `validate_mermaid_syntax` with the full report Markdown
+- For every invalid diagram reported, fix the syntax and re-validate
+- If a diagram cannot be fixed after 2 attempts, replace it with a Markdown table
+- Only proceed to the next step once all diagrams pass validation
+
+### Step 5: Methodology & Audit Trail
+The final section must include:
+- Complete source list with URLs and dates
+- Data points that were corrected during review (original → corrected)
+- Coverage summary: which sections have strong/weak data support
+- Confidence distribution: how many claims are 🟢/🟡/🔴
 
 ## When to Use
 

@@ -408,6 +408,14 @@
                 0 0 160px -40px rgba(45, 212, 191, 0.08);
   }
 
+  /* Mermaid diagrams: white card background for clarity in dark UI */
+  .dark .mermaid {
+    background-color: #ffffff;
+    color: #020617;
+    border-radius: 0.75rem;
+    padding: 1rem;
+  }
+
   .noise-overlay {
     position: relative;
   }
@@ -420,6 +428,14 @@
     pointer-events: none;
     z-index: 1;
   }
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }
 
 :root {
