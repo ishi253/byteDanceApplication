@@ -1,0 +1,13 @@
+# Cloud Build config for DeerFlow backend (single-container: Nginx + Gateway + LangGraph).
+# Run from repo root: gcloud builds submit --config cloudbuild.yaml --tag gcr.io/PROJECT_ID/deer-flow-backend:latest .
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      - 'build'
+      - '-t'
+      - 'gcr.io/$PROJECT_ID/deer-flow-backend:latest'
+      - '-f'
+      - 'docker/Dockerfile.cloudrun'
+      - '.'
+images:
+  - 'gcr.io/bytedance-490020/deer-flow-backend:latest'

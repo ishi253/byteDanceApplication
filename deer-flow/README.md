@@ -436,9 +436,14 @@ client.upload_files("thread-1", ["./report.pdf"])  # {"success": True, "files": 
 
 All dict-returning methods are validated against Gateway Pydantic response models in CI (`TestGatewayConformance`), ensuring the embedded client stays in sync with the HTTP API schemas. See `backend/src/client.py` for full API documentation.
 
+## Deployment
+
+To deploy the frontend on **Vercel** and the backend on **GCP** (Cloud Run + Cloud SQL), see **[docs/DEPLOYMENT.md](docs/DEPLOYMENT.md)** for a step-by-step plan, required env vars, and production configuration.
+
 ## Documentation
 
 - [Contributing Guide](CONTRIBUTING.md) - Development environment setup and workflow
+- [Deployment (Vercel + GCP)](docs/DEPLOYMENT.md) - Production deployment plan
 - [Configuration Guide](backend/docs/CONFIGURATION.md) - Setup and configuration instructions
 - [Architecture Overview](backend/CLAUDE.md) - Technical architecture details
 - [Backend Architecture](backend/README.md) - Backend architecture and API reference

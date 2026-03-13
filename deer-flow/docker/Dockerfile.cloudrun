@@ -1,0 +1,42 @@
+# Single-container backend for GCP Cloud Run: LangGraph + Gateway + Nginx.
+# Build from repo root: docker build -f docker/Dockerfile.cloudrun -t deer-flow-backend .
+# Listens on PORT (default 8080). Set CORS_ORIGINS to your Vercel frontend URL.
+
+FROM python:3.12-slim
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    curl \
+    nginx \
+    build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY --from=ghcr.io/astral-sh/uv:0.7.20 /uv /uvx /usr/local/bin/
+
+WORKDIR /app
+
+# Backend + config + skills (config.yaml is gitignored; use example so image builds)
+COPY config.example.yaml ./config.example.yaml
+RUN cp /app/config.example.yaml /app/config.yaml
+# Production config: Postgres checkpointer (connection_string from env DEERFLOW_PG_DSN)
+RUN cp /app/config.yaml /app/config.cloudrun.yaml && \
+    sed -i '0,/type: sqlite/s/type: sqlite/type: postgres/' /app/config.cloudrun.yaml && \
+    sed -i '0,/connection_string: checkpoints.db/s/connection_string: checkpoints.db/connection_string: $$DEERFLOW_PG_DSN/' /app/config.cloudrun.yaml
+COPY backend ./backend
+COPY skills ./skills
+# Use example so image builds without local extensions_config.json (gitignored)
+COPY extensions_config.example.json ./extensions_config.example.json
+RUN cp /app/extensions_config.example.json /app/extensions_config.json
+
+RUN --mount=type=cache,target=/root/.cache/uv \
+    sh -c "cd backend && uv sync"
+
+# Nginx config and start script
+COPY docker/nginx/nginx.cloudrun.conf /etc/nginx/nginx.cloudrun.conf
+COPY scripts/cloudrun-start.sh /app/scripts/cloudrun-start.sh
+RUN chmod +x /app/scripts/cloudrun-start.sh
+
+# Cloud Run expects one process listening on PORT (default 8080)
+ENV PORT=8080
+EXPOSE 8080
+
+CMD ["/app/scripts/cloudrun-start.sh"]

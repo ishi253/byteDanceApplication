@@ -31,6 +31,7 @@ export const enUS: Translations = {
     download: "Download",
     thinking: "Thinking",
     artifacts: "Artifacts",
+    allArtifacts: "All artifacts",
     public: "Public",
     custom: "Custom",
     notAvailableInDemoMode: "Not available in demo mode",
