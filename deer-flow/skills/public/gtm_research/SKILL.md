@@ -72,14 +72,65 @@ After all research sub-tasks complete:
 - Store any corrected values via `store_data_point(...)` with updated source
 - **If subagents are enabled**: delegate the review to `fact-check-reviewer` subagent
 
-### Step 4: Assemble Report with Provenance
+### Step 4: Assemble Report with Inline Source Links
+
+**⛔ THIS IS THE MOST IMPORTANT STEP — READ CAREFULLY**
+
 - Call `get_sourced_data(thread_id=...)` to get all verified data points
 - Build each report section using the sourced data
-- Every key claim must include inline citation: `[Source Name, Date](URL)`
+
+**MANDATORY INLINE CITATION RULES (violations make the report unacceptable):**
+
+1. **Every** dollar figure, percentage, market size, growth rate, or factual claim MUST
+   have a clickable `[citation:Source Name](URL)` link placed **in the same sentence,
+   immediately after the data it supports**.
+
+2. A "References" section at the bottom is fine **in addition** to inline links, but it
+   does NOT replace them. Data in the body **must** be individually linked.
+
+3. If a paragraph contains factual claims but zero inline `[citation:...]()` links,
+   **that paragraph is incomplete** — go back and add them before finalizing.
+
+4. Do NOT write bare numbered references like `[1]`, `[2]` unless they are ALSO
+   clickable links. Numbered references without URLs are useless to the reader.
+
+**CORRECT EXAMPLE ✅ (every data point has an inline link):**
+```
+The global prom dress market was valued at $14.81 billion in 2024
+[citation:Fortune Business Insights](https://www.fortunebusinessinsights.com/prom-dress-market-109102)
+and is projected to reach $22.56 billion by 2032, growing at a 4.4% CAGR
+[citation:Research and Markets](https://www.researchandmarkets.com/reports/6184909).
+Average spending per student is $818
+[citation:Facebook Survey](https://www.facebook.com/100091125789000/posts/856828217364697/).
+```
+
+**WRONG EXAMPLE ❌ (no inline links — sources dumped at the bottom):**
+```
+The global prom dress market was valued at $14.81 billion in 2024 and is projected
+to reach $22.56 billion by 2032. Average spending per student is $818.
+
+References:
+[1] Fortune Business Insights ...
+[2] Research and Markets ...
+```
+
+**SELF-CHECK BEFORE FINALIZING:** Scan every paragraph in the report body. If any
+paragraph has statistics but no `[citation:` links, you have failed this step.
+
+- The `get_sourced_data` response includes a pre-built `citation` field for each data
+  point — use it directly in the report text.
 - Apply confidence badges based on fact-check results:
   - 🟢 High — verified by 2+ sources, no issues flagged
   - 🟡 Medium — single source or minor flag (e.g., data from 2024)
   - 🔴 Low — contradiction unresolved, or significant anomaly
+
+### Step 4b: Validate Mermaid Diagrams
+If the report contains any Mermaid diagrams (market growth charts, competitive
+landscape flowcharts, etc.):
+- Call `validate_mermaid_syntax` with the full report Markdown
+- For every invalid diagram reported, fix the syntax and re-validate
+- If a diagram cannot be fixed after 2 attempts, replace it with a Markdown table
+- Only proceed to the next step once all diagrams pass validation
 
 ### Step 5: Methodology & Audit Trail
 The final section must include:
