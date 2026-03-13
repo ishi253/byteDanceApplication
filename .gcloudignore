@@ -1,0 +1,25 @@
+# Ignore VCS metadata
+.git/
+
+# Node/JS dependencies and build artifacts
+**/node_modules/
+**/.next/
+**/dist/
+**/build/
+
+# Python caches
+**/__pycache__/
+**/*.pyc
+
+# Local env and config overrides
+**/.env*
+
+# Editor / IDE files
+.vscode/
+.idea/
+**/*.swp
+
+# Local runtime data and logs
+**/.deer-flow/
+**/logs/
+
