@@ -182,17 +182,26 @@ def fact_check_tool(thread_id: str, section: str = "") -> str:
         dps = all_dps
 
     if not dps:
-        return json.dumps(
-            {
-                "ok": True,
-                "total_data_points": 0,
-                "issues": [],
-                "data_points_by_section": {},
-                "message": "No data points found." + (f" (filtered by section: {section})" if section else ""),
-            },
-            ensure_ascii=False,
-            indent=2,
-        )
+        response = {
+            "ok": True,
+            "total_data_points": 0,
+            "issues": [],
+            "data_points_by_section": {},
+            "summary": "Fact check scanned 0 data point(s). No data points found."
+            + (f" (filtered by section: {section})" if section else ""),
+            "message": "No data points found." + (f" (filtered by section: {section})" if section else ""),
+        }
+        try:
+            _log_fact_check_telemetry(
+                thread_id=thread_id,
+                section=section or "",
+                total_data_points=0,
+                issues=[],
+                data_points_by_section={},
+            )
+        except Exception:
+            pass
+        return json.dumps(response, ensure_ascii=False, indent=2)
 
     issues = []
 
