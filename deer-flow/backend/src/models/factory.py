@@ -4,8 +4,8 @@ import os
 from langchain.chat_models import BaseChatModel
 
 from src.config import get_app_config, get_tracing_config, is_tracing_enabled
-from src.reflection import resolve_class
 from src.models.dummy import DummyChatModel
+from src.reflection import resolve_class
 
 logger = logging.getLogger(__name__)
 
