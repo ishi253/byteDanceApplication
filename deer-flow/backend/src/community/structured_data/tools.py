@@ -71,18 +71,25 @@ def _read_csv(file_path: Path, max_rows: int) -> dict:
         except csv.Error:
             reader = csv.reader(f)
 
-        rows = []
+        rows: list[list[str]] = []
+        total_rows = 0
         for row in reader:
-            rows.append(row)
-            if len(rows) > max_rows + 1:  # +1 for header
-                break
+            total_rows += 1
+            if total_rows == 1:
+                # Always store header row
+                rows.append(row)
+                continue
+            # Store up to max_rows data rows in memory, but keep counting beyond that
+            if len(rows) <= max_rows:  # rows includes header, so len(rows) == max_rows + 1 means we've stored max_rows data rows
+                rows.append(row)
 
     if not rows:
         return {"columns": [], "column_types": [], "row_count": 0, "data": [], "summary_stats": {}}
 
     columns = rows[0]
     data_rows = rows[1 : max_rows + 1]
-    total_rows = len(rows) - 1  # Approximate (may be truncated)
+    # total_rows counts all rows including header; row_count should be data rows only
+    row_count = max(total_rows - 1, 0)
 
     # Detect column types
     col_values = {i: [] for i in range(len(columns))}
@@ -110,7 +117,7 @@ def _read_csv(file_path: Path, max_rows: int) -> dict:
     return {
         "columns": columns,
         "column_types": column_types,
-        "row_count": total_rows,
+        "row_count": row_count,
         "data": [row for row in data_rows],
         "summary_stats": summary_stats,
     }
