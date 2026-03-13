@@ -3,14 +3,12 @@
 import type { ChatStatus } from "ai";
 import {
   CheckIcon,
-  GraduationCapIcon,
-  LightbulbIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
   PaperclipIcon,
   PlusIcon,
   SparklesIcon,
-  RocketIcon,
   XIcon,
-  ZapIcon,
 } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import {
@@ -80,7 +78,6 @@ import {
 } from "../ui/dropdown-menu";
 
 import { useThread } from "./messages/context";
-import { ModeHoverGuide } from "./mode-hover-guide";
 import { Tooltip } from "./tooltip";
 
 type InputMode = "flash" | "thinking" | "pro" | "ultra";
@@ -405,185 +402,8 @@ export function InputBox({
         </PromptInputBody>
         <PromptInputFooter className="flex">
           <PromptInputTools>
-          {/* TODO: Add more connectors here
-          <PromptInputActionMenu>
-            <PromptInputActionMenuTrigger className="px-2!" />
-            <PromptInputActionMenuContent>
-              <PromptInputActionAddAttachments
-                label={t.inputBox.addAttachments}
-              />
-            </PromptInputActionMenuContent>
-          </PromptInputActionMenu> */}
+          {/* TODO: Add more connectors here */}
           <AddAttachmentsButton className="px-2!" />
-          <PromptInputActionMenu>
-            <ModeHoverGuide
-              mode={
-                context.mode === "flash" ||
-                  context.mode === "thinking" ||
-                  context.mode === "pro" ||
-                  context.mode === "ultra"
-                  ? context.mode
-                  : "flash"
-              }
-            >
-              <PromptInputActionMenuTrigger className="gap-1! px-2!">
-                <div>
-                  {context.mode === "flash" && <ZapIcon className="size-3" />}
-                  {context.mode === "thinking" && (
-                    <LightbulbIcon className="size-3" />
-                  )}
-                  {context.mode === "pro" && (
-                    <GraduationCapIcon className="size-3" />
-                  )}
-                  {context.mode === "ultra" && (
-                    <RocketIcon className="size-3 text-amber-500" />
-                  )}
-                </div>
-                <div
-                  className={cn(
-                    "text-xs font-normal",
-                    context.mode === "ultra" ? "golden-text" : "",
-                  )}
-                >
-                  {(context.mode === "flash" && t.inputBox.flashMode) ||
-                    (context.mode === "thinking" && t.inputBox.reasoningMode) ||
-                    (context.mode === "pro" && t.inputBox.proMode) ||
-                    (context.mode === "ultra" && t.inputBox.ultraMode)}
-                </div>
-              </PromptInputActionMenuTrigger>
-            </ModeHoverGuide>
-            <PromptInputActionMenuContent className="w-80">
-              <DropdownMenuGroup>
-                <DropdownMenuLabel className="text-muted-foreground text-xs">
-                  {t.inputBox.mode}
-                </DropdownMenuLabel>
-                <PromptInputActionMenu>
-                  <PromptInputActionMenuItem
-                    className={cn(
-                      context.mode === "flash"
-                        ? "text-accent-foreground"
-                        : "text-muted-foreground/65",
-                    )}
-                    onSelect={() => handleModeSelect("flash")}
-                  >
-                    <div className="flex flex-col gap-2">
-                      <div className="flex items-center gap-1 font-bold">
-                        <ZapIcon
-                          className={cn(
-                            "mr-2 size-4",
-                            context.mode === "flash" &&
-                            "text-accent-foreground",
-                          )}
-                        />
-                        {t.inputBox.flashMode}
-                      </div>
-                      <div className="pl-7 text-xs">
-                        {t.inputBox.flashModeDescription}
-                      </div>
-                    </div>
-                    {context.mode === "flash" ? (
-                      <CheckIcon className="ml-auto size-4" />
-                    ) : (
-                      <div className="ml-auto size-4" />
-                    )}
-                  </PromptInputActionMenuItem>
-                  {supportThinking && (
-                    <PromptInputActionMenuItem
-                      className={cn(
-                        context.mode === "thinking"
-                          ? "text-accent-foreground"
-                          : "text-muted-foreground/65",
-                      )}
-                      onSelect={() => handleModeSelect("thinking")}
-                    >
-                      <div className="flex flex-col gap-2">
-                        <div className="flex items-center gap-1 font-bold">
-                          <LightbulbIcon
-                            className={cn(
-                              "mr-2 size-4",
-                              context.mode === "thinking" &&
-                              "text-accent-foreground",
-                            )}
-                          />
-                          {t.inputBox.reasoningMode}
-                        </div>
-                        <div className="pl-7 text-xs">
-                          {t.inputBox.reasoningModeDescription}
-                        </div>
-                      </div>
-                      {context.mode === "thinking" ? (
-                        <CheckIcon className="ml-auto size-4" />
-                      ) : (
-                        <div className="ml-auto size-4" />
-                      )}
-                    </PromptInputActionMenuItem>
-                  )}
-                  <PromptInputActionMenuItem
-                    className={cn(
-                      context.mode === "pro"
-                        ? "text-accent-foreground"
-                        : "text-muted-foreground/65",
-                    )}
-                    onSelect={() => handleModeSelect("pro")}
-                  >
-                    <div className="flex flex-col gap-2">
-                      <div className="flex items-center gap-1 font-bold">
-                        <GraduationCapIcon
-                          className={cn(
-                            "mr-2 size-4",
-                            context.mode === "pro" && "text-accent-foreground",
-                          )}
-                        />
-                        {t.inputBox.proMode}
-                      </div>
-                      <div className="pl-7 text-xs">
-                        {t.inputBox.proModeDescription}
-                      </div>
-                    </div>
-                    {context.mode === "pro" ? (
-                      <CheckIcon className="ml-auto size-4" />
-                    ) : (
-                      <div className="ml-auto size-4" />
-                    )}
-                  </PromptInputActionMenuItem>
-                  <PromptInputActionMenuItem
-                    className={cn(
-                      context.mode === "ultra"
-                        ? "text-accent-foreground"
-                        : "text-muted-foreground/65",
-                    )}
-                    onSelect={() => handleModeSelect("ultra")}
-                  >
-                    <div className="flex flex-col gap-2">
-                      <div className="flex items-center gap-1 font-bold">
-                        <RocketIcon
-                          className={cn(
-                            "mr-2 size-4",
-                            context.mode === "ultra" && "text-amber-500",
-                          )}
-                        />
-                        <div
-                          className={cn(
-                            context.mode === "ultra" && "golden-text",
-                          )}
-                        >
-                          {t.inputBox.ultraMode}
-                        </div>
-                      </div>
-                      <div className="pl-7 text-xs">
-                        {t.inputBox.ultraModeDescription}
-                      </div>
-                    </div>
-                    {context.mode === "ultra" ? (
-                      <CheckIcon className="ml-auto size-4" />
-                    ) : (
-                      <div className="ml-auto size-4" />
-                    )}
-                  </PromptInputActionMenuItem>
-                </PromptInputActionMenu>
-              </DropdownMenuGroup>
-            </PromptInputActionMenuContent>
-          </PromptInputActionMenu>
           {supportReasoningEffort && context.mode !== "flash" && (
             <PromptInputActionMenu>
               <PromptInputActionMenuTrigger className="gap-1! px-2!">
@@ -749,35 +569,14 @@ export function InputBox({
         !isNewThread &&
         !followupsHidden &&
         (followupsLoading || followups.length > 0) && (
-          <div className="absolute right-0 -top-20 left-0 z-20 flex items-center justify-center">
-            <div className="flex items-center gap-2">
-              {followupsLoading ? (
-                <div className="rounded-full border border-white/[0.06] bg-white/[0.03] px-4 py-2 text-xs text-white/40 backdrop-blur-xl">
-                  {t.inputBox.followupLoading}
-                </div>
-              ) : (
-                <Suggestions className="min-h-16 w-fit items-start">
-                  {followups.map((s) => (
-                    <Suggestion
-                      key={s}
-                      suggestion={s}
-                      onClick={() => handleFollowupClick(s)}
-                    />
-                  ))}
-                  <Button
-                    aria-label={t.common.close}
-                    className="text-muted-foreground cursor-pointer rounded-full px-3 text-xs font-normal"
-                    variant="outline"
-                    size="sm"
-                    type="button"
-                    onClick={() => setFollowupsHidden(true)}
-                  >
-                    <XIcon className="size-4" />
-                  </Button>
-                </Suggestions>
-              )}
-            </div>
-          </div>
+          <FollowupBar
+            loading={followupsLoading}
+            followups={followups}
+            loadingLabel={t.inputBox.followupLoading}
+            closeLabel={t.common.close}
+            onClickSuggestion={handleFollowupClick}
+            onClose={() => setFollowupsHidden(true)}
+          />
         )}
 
       <Dialog open={confirmOpen} onOpenChange={setConfirmOpen}>
@@ -871,6 +670,120 @@ function SuggestionList() {
         </DropdownMenuContent>
       </DropdownMenu>
     </Suggestions>
+  );
+}
+
+function FollowupBar({
+  loading,
+  followups,
+  loadingLabel,
+  closeLabel,
+  onClickSuggestion,
+  onClose,
+}: {
+  loading: boolean;
+  followups: string[];
+  loadingLabel: string;
+  closeLabel: string;
+  onClickSuggestion: (s: string) => void;
+  onClose: () => void;
+}) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  const checkScroll = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 1);
+    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 1);
+  }, []);
+
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    checkScroll();
+    el.addEventListener("scroll", checkScroll, { passive: true });
+    const ro = new ResizeObserver(checkScroll);
+    ro.observe(el);
+    return () => {
+      el.removeEventListener("scroll", checkScroll);
+      ro.disconnect();
+    };
+  }, [checkScroll, followups]);
+
+  const scroll = useCallback((dir: "left" | "right") => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollBy({ left: dir === "left" ? -200 : 200, behavior: "smooth" });
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="absolute right-0 bottom-full left-0 z-20 mb-2 flex justify-center px-4">
+        <div className="rounded-full border border-white/[0.06] bg-white/[0.03] px-4 py-2 text-xs text-white/40 backdrop-blur-xl">
+          {loadingLabel}
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="absolute right-0 bottom-full left-0 z-20 mb-2 flex items-center gap-1 px-2">
+      {canScrollLeft && (
+        <Button
+          className="text-muted-foreground shrink-0 cursor-pointer rounded-full"
+          variant="ghost"
+          size="icon"
+          type="button"
+          onClick={() => scroll("left")}
+        >
+          <ChevronLeftIcon className="size-4" />
+        </Button>
+      )}
+
+      <div
+        ref={scrollRef}
+        className="scrollbar-none flex min-w-0 flex-1 gap-2 overflow-x-auto"
+      >
+        {followups.map((s, i) => (
+          <span
+            key={s}
+            className="animate-fade-in-up inline-block shrink-0 opacity-0"
+            style={{ animationDelay: `${250 + i * 60}ms` }}
+          >
+            <Suggestion suggestion={s} onClick={() => onClickSuggestion(s)} />
+          </span>
+        ))}
+        <span
+          className="animate-fade-in-up inline-block shrink-0 opacity-0"
+          style={{ animationDelay: `${250 + followups.length * 60}ms` }}
+        >
+          <Button
+            aria-label={closeLabel}
+            className="text-muted-foreground cursor-pointer rounded-full px-3 text-xs font-normal"
+            variant="outline"
+            size="sm"
+            type="button"
+            onClick={onClose}
+          >
+            <XIcon className="size-4" />
+          </Button>
+        </span>
+      </div>
+
+      {canScrollRight && (
+        <Button
+          className="text-muted-foreground shrink-0 cursor-pointer rounded-full"
+          variant="ghost"
+          size="icon"
+          type="button"
+          onClick={() => scroll("right")}
+        >
+          <ChevronRightIcon className="size-4" />
+        </Button>
+      )}
+    </div>
   );
 }
 

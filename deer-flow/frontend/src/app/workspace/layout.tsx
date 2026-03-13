@@ -32,7 +32,7 @@ export default function WorkspaceLayout({
   return (
     <QueryClientProvider client={queryClient}>
       <SidebarProvider
-        className="h-screen"
+        className="h-screen overflow-hidden"
         open={open}
         onOpenChange={handleOpenChange}
       >
