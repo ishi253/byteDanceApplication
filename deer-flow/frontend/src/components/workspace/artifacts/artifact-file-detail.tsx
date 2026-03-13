@@ -1,4 +1,5 @@
 import {
+  ArrowLeftIcon,
   Code2Icon,
   CopyIcon,
   DownloadIcon,
@@ -125,14 +126,22 @@ export function ArtifactFileDetail({
   }, [threadId, filepath, isInstalling]);
   return (
     <Artifact className={cn(className)}>
-      <ArtifactHeader className="px-2">
-        <div className="flex items-center gap-2">
-          <ArtifactTitle>
+      <ArtifactHeader className="gap-2 px-2">
+        <div className="flex min-w-0 flex-1 items-center gap-1 overflow-hidden">
+          <ArtifactAction
+            icon={ArrowLeftIcon}
+            label={t.common.allArtifacts ?? "All artifacts"}
+            tooltip={t.common.allArtifacts ?? "All artifacts"}
+            onClick={() => {
+              deselect();
+              setOpen(true);
+            }}
+          />
+          <ArtifactTitle className="min-w-0 flex-1 overflow-hidden">
             <Select
               value={filepathFromProps}
               onValueChange={(value) => {
                 if (value === "__all__") {
-                  // Show the full artifacts list instead of a single detail view.
                   deselect();
                   setOpen(true);
                   return;
@@ -140,7 +149,7 @@ export function ArtifactFileDetail({
                 select(value);
               }}
             >
-              <SelectTrigger className="border-none bg-transparent! shadow-none select-none focus:outline-0 active:outline-0">
+              <SelectTrigger className="min-w-0 border-none bg-transparent! shadow-none select-none focus:outline-0 active:outline-0 [&>span]:truncate">
                 <SelectValue placeholder="Select a file" />
               </SelectTrigger>
               <SelectContent className="select-none">
@@ -168,7 +177,7 @@ export function ArtifactFileDetail({
             </Select>
           </ArtifactTitle>
         </div>
-        <div className="flex min-w-0 grow items-center justify-center">
+        <div className="flex shrink-0 items-center justify-center">
           {isSupportPreview && (
             <ToggleGroup
               className="mx-auto"
@@ -191,7 +200,7 @@ export function ArtifactFileDetail({
             </ToggleGroup>
           )}
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-2">
           <ArtifactActions>
             {!isWriteFile && filepath.endsWith(".skill") && (
               <Tooltip content={t.toolCalls.skillInstallTooltip}>

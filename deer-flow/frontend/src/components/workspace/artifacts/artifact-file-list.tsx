@@ -76,23 +76,27 @@ export function ArtifactFileList({
       {files.map((file) => (
         <Card
           key={file}
-          className="relative cursor-pointer p-3"
+          className="relative cursor-pointer"
           onClick={() => handleClick(file)}
         >
-          <CardHeader className="pr-2 pl-1">
-            <CardTitle className="relative pl-8">
-              <div>{getFileName(file)}</div>
-              <div className="absolute top-2 -left-0.5">
+          <CardHeader className="px-4">
+            <CardTitle className="flex items-start gap-2">
+              <span className="shrink-0 pt-0.5">
                 {getFileIcon(file, "size-6")}
-              </div>
+              </span>
+              <span className="min-w-0 break-words text-left">
+                {getFileName(file)}
+              </span>
             </CardTitle>
-            <CardDescription className="pl-8 text-xs">
+            <CardDescription className="ml-8 text-xs">
               {getFileExtensionDisplayName(file)} file
             </CardDescription>
-            <CardAction>
+            <CardAction className="pr-1">
               {file.endsWith(".skill") && (
                 <Button
+                  aria-label={t.common.install}
                   variant="ghost"
+                  size="icon-sm"
                   disabled={installingFile === file}
                   onClick={(e) => handleInstallSkill(e, file)}
                 >
@@ -101,7 +105,6 @@ export function ArtifactFileList({
                   ) : (
                     <PackageIcon className="size-4" />
                   )}
-                  {t.common.install}
                 </Button>
               )}
               <a
@@ -113,9 +116,12 @@ export function ArtifactFileList({
                 target="_blank"
                 onClick={(e) => e.stopPropagation()}
               >
-                <Button variant="ghost">
+                <Button
+                  aria-label={t.common.download}
+                  variant="ghost"
+                  size="icon-sm"
+                >
                   <DownloadIcon className="size-4" />
-                  {t.common.download}
                 </Button>
               </a>
             </CardAction>

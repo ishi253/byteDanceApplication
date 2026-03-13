@@ -422,6 +422,14 @@
   }
 }
 
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
 :root {
   --container-width-xs: calc(var(--spacing) * 72);
   --container-width-sm: calc(var(--spacing) * 144);
