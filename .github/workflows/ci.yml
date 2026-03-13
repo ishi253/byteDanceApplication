@@ -79,6 +79,8 @@ jobs:
 
       - name: Build frontend
         working-directory: deer-flow/frontend
+        env:
+          BETTER_AUTH_SECRET: ci-build-placeholder
         run: pnpm build
 
   docker:
