@@ -387,6 +387,11 @@ def get_sourced_data_tool(thread_id: str, section: str = "") -> str:
     # Group by section with full provenance and citation block
     sections: dict[str, list[dict]] = {}
     for dp in dps:
+        source_date = dp.get("source_date") if isinstance(dp, dict) else dp["source_date"]
+        if source_date:
+            citation = f"[{dp['source_name']}, {source_date}]({dp['source_url']})"
+        else:
+            citation = f"[{dp['source_name']}]({dp['source_url']})"
         entry = {
             "id": dp["id"],
             "field": dp["field"],
@@ -396,7 +401,7 @@ def get_sourced_data_tool(thread_id: str, section: str = "") -> str:
             "source_date": dp["source_date"],
             "source_type": dp["source_type"],
             "confidence": dp["confidence"],
-            "citation": f"[{dp['source_name']}, {dp['source_date']}]({dp['source_url']})",
+            "citation": citation,
         }
         sections.setdefault(dp["section"], []).append(entry)
 
