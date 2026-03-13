@@ -1,0 +1,1302 @@
+[
+  {
+    "textPayload": "  File \"/app/backend/.venv/lib/python3.12/site-packages/starlette/routing.py\", line 694, in lifespan",
+    "insertId": "69b394dc000a33b9e85f08aa",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "location": "us-central1",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668601Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "    async with self.lifespan_context(app) as maybe_state:",
+    "insertId": "69b394dc000a33bcda09f77a",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "location": "us-central1"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668604Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "               ^^^^^^^^^^^^^^^^^^^^^^^^^^",
+    "insertId": "69b394dc000a33bec567ea8e",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020",
+        "location": "us-central1",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668606Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "  File \"/usr/local/lib/python3.12/contextlib.py\", line 210, in __aenter__",
+    "insertId": "69b394dc000a33c1e00a8647",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "location": "us-central1",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668609Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "    return await anext(self.gen)",
+    "insertId": "69b394dc000a33c2e75d3b2f",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "location": "us-central1",
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668610Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "           ^^^^^^^^^^^^^^^^^^^^^",
+    "insertId": "69b394dc000a33c4ca2bfac4",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "location": "us-central1"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668612Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "  File \"/app/backend/.venv/lib/python3.12/site-packages/langgraph_api/timing/timer.py\", line 227, in combined_lifespan",
+    "insertId": "69b394dc000a33c642f9ee6c",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "location": "us-central1",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668614Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "    await stack.enter_async_context(ls(app))",
+    "insertId": "69b394dc000a33c8956ae4ef",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "location": "us-central1",
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668616Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "  File \"/usr/local/lib/python3.12/contextlib.py\", line 659, in enter_async_context",
+    "insertId": "69b394dc000a33ca914e01dc",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "location": "us-central1",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668618Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "    result = await _enter(cm)",
+    "insertId": "69b394dc000a33cc2329894b",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "location": "us-central1",
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668620Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "             ^^^^^^^^^^^^^^^^",
+    "insertId": "69b394dc000a33cf887f7bc0",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "location": "us-central1"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668623Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "  File \"/usr/local/lib/python3.12/contextlib.py\", line 210, in __aenter__",
+    "insertId": "69b394dc000a33d11287aab5",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend",
+        "location": "us-central1",
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668625Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "    return await anext(self.gen)",
+    "insertId": "69b394dc000a33d35d07690a",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "location": "us-central1"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668627Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "           ^^^^^^^^^^^^^^^^^^^^^",
+    "insertId": "69b394dc000a33d59708c1c4",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020",
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "location": "us-central1"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668629Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "  File \"/app/backend/.venv/lib/python3.12/site-packages/langgraph_runtime_inmem/lifespan.py\", line 62, in lifespan",
+    "insertId": "69b394dc000a33d78c3d1c04",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend",
+        "location": "us-central1",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668631Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "    await api_checkpointer.start_checkpointer()",
+    "insertId": "69b394dc000a33d8da80fefb",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "location": "us-central1",
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668632Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "  File \"/app/backend/.venv/lib/python3.12/site-packages/langgraph_api/_checkpointer/__init__.py\", line 34, in start_checkpointer",
+    "insertId": "69b394dc000a33dbc64f5039",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend",
+        "location": "us-central1",
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668635Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "    checkpointer = await get_checkpointer()",
+    "insertId": "69b394dc000a33dd9ab6dc19",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "location": "us-central1",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668637Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "                   ^^^^^^^^^^^^^^^^^^^^^^^^",
+    "insertId": "69b394dc000a33df1dbe0a0e",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020",
+        "location": "us-central1",
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668639Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "  File \"/app/backend/.venv/lib/python3.12/site-packages/langgraph_api/_checkpointer/__init__.py\", line 22, in get_checkpointer",
+    "insertId": "69b394dc000a33e1ca6c919f",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend",
+        "location": "us-central1",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668641Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "    return await _adapter.get_checkpointer(",
+    "insertId": "69b394dc000a33e33935948e",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020",
+        "location": "us-central1",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668643Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+    "insertId": "69b394dc000a33e5c3c1981b",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020",
+        "location": "us-central1",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668645Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "  File \"/app/backend/.venv/lib/python3.12/site-packages/langgraph_api/_checkpointer/_adapter.py\", line 268, in get_checkpointer",
+    "insertId": "69b394dc000a33e8b89decc3",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "location": "us-central1",
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668648Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "    inner = await stack.enter_async_context(",
+    "insertId": "69b394dc000a33ea8351cb3b",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "location": "us-central1"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668650Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+    "insertId": "69b394dc000a33ece2bfbcf3",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "location": "us-central1"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668652Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "  File \"/usr/local/lib/python3.12/contextlib.py\", line 659, in enter_async_context",
+    "insertId": "69b394dc000a33ee7a403971",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "location": "us-central1",
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668654Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "    result = await _enter(cm)",
+    "insertId": "69b394dc000a33f026706e4f",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020",
+        "location": "us-central1",
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668656Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "             ^^^^^^^^^^^^^^^^",
+    "insertId": "69b394dc000a33f215a651ef",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend",
+        "location": "us-central1",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668658Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "  File \"/usr/local/lib/python3.12/contextlib.py\", line 210, in __aenter__",
+    "insertId": "69b394dc000a33f4e5712cd6",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend",
+        "location": "us-central1",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668660Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "    return await anext(self.gen)",
+    "insertId": "69b394dc000a33f77e771f3b",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020",
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "location": "us-central1"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668663Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "           ^^^^^^^^^^^^^^^^^^^^^",
+    "insertId": "69b394dc000a33f92d958be4",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "location": "us-central1",
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668665Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "  File \"/app/backend/.venv/lib/python3.12/site-packages/langgraph_api/_checkpointer/_adapter.py\", line 396, in _yield_checkpointer",
+    "insertId": "69b394dc000a33fb525da5fd",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "location": "us-central1",
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668667Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "    async with _yield_checkpointer(value()) as ctx_value:",
+    "insertId": "69b394dc000a33ff3aa2202e",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "location": "us-central1",
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668671Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+    "insertId": "69b394dc000a3401cb556b51",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend",
+        "location": "us-central1",
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668673Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "  File \"/usr/local/lib/python3.12/contextlib.py\", line 210, in __aenter__",
+    "insertId": "69b394dc000a3403ab1de465",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "location": "us-central1",
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668675Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "    return await anext(self.gen)",
+    "insertId": "69b394dc000a340521703b9b",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend",
+        "location": "us-central1",
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668677Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "           ^^^^^^^^^^^^^^^^^^^^^",
+    "insertId": "69b394dc000a340734dd1695",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "location": "us-central1",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668679Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "  File \"/app/backend/.venv/lib/python3.12/site-packages/langgraph_api/_checkpointer/_adapter.py\", line 380, in _yield_checkpointer",
+    "insertId": "69b394dc000a34097fb06fed",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend",
+        "location": "us-central1",
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668681Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "    async with value as ctx_value:",
+    "insertId": "69b394dc000a340b553b2f08",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "location": "us-central1",
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668683Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "               ^^^^^",
+    "insertId": "69b394dc000a340d048d54af",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend",
+        "location": "us-central1",
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668685Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "  File \"/usr/local/lib/python3.12/contextlib.py\", line 210, in __aenter__",
+    "insertId": "69b394dc000a340fb8e7f7b7",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "location": "us-central1",
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668687Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "    return await anext(self.gen)",
+    "insertId": "69b394dc000a34112ae5f64a",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "location": "us-central1",
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668689Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "           ^^^^^^^^^^^^^^^^^^^^^",
+    "insertId": "69b394dc000a3413105f4593",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "location": "us-central1",
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668691Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "  File \"/app/backend/src/agents/checkpointer/async_provider.py\", line 108, in make_checkpointer",
+    "insertId": "69b394dc000a3415ab67d368",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend",
+        "location": "us-central1",
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668693Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "    async with _async_checkpointer(config.checkpointer) as saver:",
+    "insertId": "69b394dc000a34178fd1ad73",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "location": "us-central1",
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668695Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+    "insertId": "69b394dc000a341952f9c12f",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "location": "us-central1",
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668697Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "  File \"/usr/local/lib/python3.12/contextlib.py\", line 210, in __aenter__",
+    "insertId": "69b394dc000a341b262f4f3e",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "location": "us-central1"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668699Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "    return await anext(self.gen)",
+    "insertId": "69b394dc000a341d5f0bebc3",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend",
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "location": "us-central1"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668701Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "           ^^^^^^^^^^^^^^^^^^^^^",
+    "insertId": "69b394dc000a341f9df52e62",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "location": "us-central1",
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668703Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "  File \"/app/backend/src/agents/checkpointer/async_provider.py\", line 76, in _async_checkpointer",
+    "insertId": "69b394dc000a3421811b4369",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "location": "us-central1",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668705Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "    async with AsyncPostgresSaver.from_conn_string(config.connection_string) as saver:",
+    "insertId": "69b394dc000a34238ef2d0f4",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "location": "us-central1",
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668707Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+    "insertId": "69b394dc000a342501b2add3",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "location": "us-central1",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668709Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "  File \"/usr/local/lib/python3.12/contextlib.py\", line 210, in __aenter__",
+    "insertId": "69b394dc000a34285df316ce",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "location": "us-central1",
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668712Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "    return await anext(self.gen)",
+    "insertId": "69b394dc000a34296aebff45",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020",
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "location": "us-central1"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668713Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "           ^^^^^^^^^^^^^^^^^^^^^",
+    "insertId": "69b394dc000a342bf3d3a9b8",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend",
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "location": "us-central1"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668715Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "  File \"/app/backend/.venv/lib/python3.12/site-packages/langgraph/checkpoint/postgres/aio.py\", line 73, in from_conn_string",
+    "insertId": "69b394dc000a342ddbd24cf5",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend",
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "location": "us-central1"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668717Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "    async with await AsyncConnection.connect(",
+    "insertId": "69b394dc000a342f6c3a24be",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "location": "us-central1",
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668719Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^",
+    "insertId": "69b394dc000a3431fb27a14a",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020",
+        "location": "us-central1",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668721Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "  File \"/app/backend/.venv/lib/python3.12/site-packages/psycopg/connection_async.py\", line 138, in connect",
+    "insertId": "69b394dc000a34342c03faea",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend",
+        "location": "us-central1",
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668724Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "    raise last_ex.with_traceback(None)",
+    "insertId": "69b394dc000a34366ca4caf2",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "location": "us-central1",
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668726Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "psycopg.OperationalError: connection failed: connection to server at \"34.63.123.230\", port 5432 failed: server closed the connection unexpectedly",
+    "insertId": "69b394dc000a344656ba4066",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend",
+        "location": "us-central1",
+        "configuration_name": "deer-flow-backend",
+        "revision_name": "deer-flow-backend-00003-pvd"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668742Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "\tThis probably means the server terminated abnormally",
+    "insertId": "69b394dc000a3448d34321a7",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "location": "us-central1",
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668744Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "\tbefore or while processing the request.",
+    "insertId": "69b394dc000a344a4857fd6c",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "location": "us-central1",
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668746Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "\u001b[0m [\u001b[0m\u001b[1m\u001b[34muvicorn.error\u001b[0m]\u001b[0m \u001b[36mapi_variant\u001b[0m=\u001b[35mlocal_dev\u001b[0m \u001b[36mlanggraph_api_version\u001b[0m=\u001b[35m0.7.65\u001b[0m \u001b[36mthread_name\u001b[0m=\u001b[35mMainThread\u001b[0m",
+    "insertId": "69b394dc000a344c83a9ecf4",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "location": "us-central1",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend",
+        "service_name": "deer-flow-backend",
+        "project_id": "bytedance-490020"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668748Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  },
+  {
+    "textPayload": "\u001b[2m2026-03-13T04:38:52.669193Z\u001b[0m [\u001b[31m\u001b[1merror    \u001b[0m] \u001b[1mApplication startup failed. Exiting.\u001b[0m [\u001b[0m\u001b[1m\u001b[34muvicorn.error\u001b[0m]\u001b[0m \u001b[36mapi_variant\u001b[0m=\u001b[35mlocal_dev\u001b[0m \u001b[36mlanggraph_api_version\u001b[0m=\u001b[35m0.7.65\u001b[0m \u001b[36mthread_name\u001b[0m=\u001b[35mMainThread\u001b[0m",
+    "insertId": "69b394dc000a3450311e050f",
+    "resource": {
+      "type": "cloud_run_revision",
+      "labels": {
+        "project_id": "bytedance-490020",
+        "service_name": "deer-flow-backend",
+        "location": "us-central1",
+        "revision_name": "deer-flow-backend-00003-pvd",
+        "configuration_name": "deer-flow-backend"
+      }
+    },
+    "timestamp": "2026-03-13T04:38:52.668752Z",
+    "labels": {
+      "instanceId": "00da6cd2c4e260fa540e017c1628543602472d8b732017d4400094ab372276d661d8d6a486520fbf3cf74ab0c5ab9a5de636b828642f02cc9d23104d53811a55a0e56bf41fc75ee4eb929d9fab43"
+    },
+    "logName": "projects/bytedance-490020/logs/run.googleapis.com%2Fstdout",
+    "receiveTimestamp": "2026-03-13T04:38:52.838193879Z"
+  }
+]

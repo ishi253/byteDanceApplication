@@ -1,5 +1,11 @@
 from __future__ import annotations
 
+from typing import Any
+
+from langchain.chat_models import BaseChatModel
+from langchain_core.messages import AIMessage, BaseMessage, HumanMessage
+from langchain_core.outputs import ChatGeneration, ChatResult
+
 """Dummy chat model for dev builds.
 
 This model never calls an external API. It returns a simple, deterministic
@@ -7,11 +13,6 @@ response that mimics an LLM so the rest of the LangGraph stack (streaming,
 tools, UI) can be exercised without consuming credits.
 """
 
-from typing import Any, List, Optional
-
-from langchain.chat_models import BaseChatModel
-from langchain_core.messages import AIMessage, BaseMessage, HumanMessage
-from langchain_core.outputs import ChatGeneration, ChatResult
 
 
 class DummyChatModel(BaseChatModel):
@@ -24,9 +25,9 @@ class DummyChatModel(BaseChatModel):
         """Return identifier for this dummy model."""
         return "dummy-dev"
 
-    def _build_response(self, messages: List[BaseMessage]) -> ChatResult:
+    def _build_response(self, messages: list[BaseMessage]) -> ChatResult:
         """Core implementation shared by sync and async generate."""
-        last_human: Optional[HumanMessage] = None
+        last_human: HumanMessage | None = None
         for msg in reversed(messages):
             if isinstance(msg, HumanMessage):
                 last_human = msg
@@ -57,8 +58,8 @@ class DummyChatModel(BaseChatModel):
 
     def _generate(
         self,
-        messages: List[BaseMessage],
-        stop: Optional[List[str]] = None,  # noqa: ARG002
+        messages: list[BaseMessage],
+        stop: list[str] | None = None,  # noqa: ARG002
         **kwargs: Any,  # noqa: ARG002
     ) -> ChatResult:
         """Synchronous generation hook."""
@@ -66,8 +67,8 @@ class DummyChatModel(BaseChatModel):
 
     async def _agenerate(
         self,
-        messages: List[BaseMessage],
-        stop: Optional[List[str]] = None,  # noqa: ARG002
+        messages: list[BaseMessage],
+        stop: list[str] | None = None,  # noqa: ARG002
         **kwargs: Any,  # noqa: ARG002
     ) -> ChatResult:
         """Async generation hook used by streaming runtimes."""

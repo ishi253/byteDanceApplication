@@ -8,12 +8,12 @@ from src.agents.middlewares.clarification_middleware import ClarificationMiddlew
 from src.agents.middlewares.dangling_tool_call_middleware import DanglingToolCallMiddleware
 from src.agents.middlewares.memory_middleware import MemoryMiddleware
 from src.agents.middlewares.subagent_limit_middleware import SubagentLimitMiddleware
-from src.agents.middlewares.ui_preserving_summarization_middleware import (
-    UiPreservingSummarizationMiddleware,
-)
 from src.agents.middlewares.thread_data_middleware import ThreadDataMiddleware
 from src.agents.middlewares.title_middleware import TitleMiddleware
 from src.agents.middlewares.todo_middleware import TodoMiddleware
+from src.agents.middlewares.ui_preserving_summarization_middleware import (
+    UiPreservingSummarizationMiddleware,
+)
 from src.agents.middlewares.uploads_middleware import UploadsMiddleware
 from src.agents.middlewares.view_image_middleware import ViewImageMiddleware
 from src.agents.thread_state import ThreadState

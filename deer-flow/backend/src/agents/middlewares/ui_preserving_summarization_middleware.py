@@ -14,7 +14,8 @@ backwards-compatible from the model's perspective while the UI gains access to
 
 from __future__ import annotations
 
-from typing import Any, Iterable, override
+from collections.abc import Iterable
+from typing import override
 
 from langchain.agents import AgentState
 from langchain.agents.middleware import AgentMiddleware
