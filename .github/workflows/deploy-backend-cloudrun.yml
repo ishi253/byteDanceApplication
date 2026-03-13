@@ -1,28 +1,47 @@
 name: Deploy Backend to Cloud Run
 
 on:
-  workflow_run:
-    workflows: ["CI"]
-    branches: [prod]
-    types: [completed]
+  push:
+    branches:
+      - prod
+    paths:
+      - 'deer-flow/backend/**'
+      - 'deer-flow/docker/Dockerfile.cloudrun'
+      - 'deer-flow/docker/nginx/nginx.cloudrun.conf'
+      - 'deer-flow/scripts/cloudrun-start.sh'
+      - 'deer-flow/config.example.yaml'
+      - 'deer-flow/extensions_config.example.json'
+      - 'deer-flow/skills/**'
 
 concurrency:
   group: deploy-backend-${{ github.ref }}
   cancel-in-progress: true
 
+env:
+  GHCR_IMAGE: ghcr.io/ishi253/bytedanceapplication/deer-flow-backend
+  GCR_IMAGE: gcr.io/bytedance-490020/deer-flow-backend
+  REGION: us-central1
+  SERVICE: deer-flow-backend
+  CLOUDSQL_INSTANCES: "bytedance-490020:us-central1:deerflow-db,bytedance-490020:us-central1:free-trial-first-project"
+  CORS_ORIGINS: "https://byte-dance-application.vercel.app https://byte-dance-application-*.vercel.app"
+
 jobs:
   deploy:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
     permissions:
       contents: read
+      packages: read
       id-token: write
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Login to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
@@ -34,6 +53,30 @@ jobs:
         with:
           project_id: bytedance-490020
 
-      - name: Build and deploy via Cloud Build
+      - name: Configure Docker for GCR
+        run: gcloud auth configure-docker --quiet
+
+      - name: Pull from GHCR, push to GCR
         run: |
-          gcloud builds submit --config deer-flow/cloudbuild.yaml .
+          docker pull ${{ env.GHCR_IMAGE }}:latest
+          docker tag ${{ env.GHCR_IMAGE }}:latest ${{ env.GCR_IMAGE }}:${{ github.sha }}
+          docker tag ${{ env.GHCR_IMAGE }}:latest ${{ env.GCR_IMAGE }}:latest
+          docker push ${{ env.GCR_IMAGE }}:${{ github.sha }}
+          docker push ${{ env.GCR_IMAGE }}:latest
+
+      - name: Deploy to Cloud Run
+        run: |
+          gcloud run deploy ${{ env.SERVICE }} \
+            --image ${{ env.GCR_IMAGE }}:${{ github.sha }} \
+            --region ${{ env.REGION }} \
+            --platform managed \
+            --allow-unauthenticated \
+            --port 8080 \
+            --set-env-vars "CORS_ORIGINS=${{ env.CORS_ORIGINS }},DEER_FLOW_CONFIG_PATH=/app/config.cloudrun.yaml" \
+            --set-secrets "TAVILY_API_KEY=tavily-api-key:latest,DEEPSEEK_API_KEY=deepseek-api-key:latest,DEERFLOW_PG_DSN=DEERFLOW_PG_DSN:latest" \
+            --add-cloudsql-instances ${{ env.CLOUDSQL_INSTANCES }} \
+            --memory 2Gi \
+            --cpu 2 \
+            --min-instances 0 \
+            --max-instances 5 \
+            --timeout 600s
