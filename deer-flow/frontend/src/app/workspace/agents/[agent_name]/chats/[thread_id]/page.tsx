@@ -2,7 +2,7 @@
 
 import { BotIcon, PlusSquare } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
-import { useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import type { PromptInputMessage } from "@/components/ai-elements/prompt-input";
 import { Button } from "@/components/ui/button";
@@ -28,6 +28,11 @@ export default function AgentChatPage() {
   const { t } = useI18n();
   const [settings, setSettings] = useLocalSettings();
   const router = useRouter();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const { agent_name } = useParams<{
     agent_name: string;
@@ -77,6 +82,14 @@ export default function AgentChatPage() {
   const handleStop = useCallback(async () => {
     await thread.stop();
   }, [thread]);
+
+  if (!mounted) {
+    return (
+      <ThreadContext.Provider value={{ thread }}>
+        <div className="flex h-full w-full items-center justify-center" />
+      </ThreadContext.Provider>
+    );
+  }
 
   return (
     <ThreadContext.Provider value={{ thread }}>

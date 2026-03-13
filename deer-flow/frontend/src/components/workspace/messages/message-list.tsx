@@ -213,7 +213,9 @@ export function MessageList({
             />
           );
         })}
-        {thread.isLoading && <StreamingIndicator className="my-4" />}
+        {thread.isLoading && (
+          <StreamingIndicator className="my-4" messages={messages} />
+        )}
         <div style={{ height: `${paddingBottom}px` }} />
       </ConversationContent>
     </Conversation>
