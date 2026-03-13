@@ -56,7 +56,8 @@ export function MessageList({
         {summaryHistory && (
           <div className="rounded-xl border border-border/60 bg-muted/40 px-4 py-3 text-xs text-muted-foreground">
             <div className="mb-1 font-medium text-foreground/80">
-              {t.common.earlierContext || "Earlier context (summarized)"}
+              {t.settings.memory.markdown.earlierContext ||
+                "Earlier context (summarized)"}
             </div>
             <MarkdownContent
               content={summaryHistory}
