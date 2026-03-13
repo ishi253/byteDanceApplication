@@ -181,14 +181,14 @@ gcloud run deploy deer-flow-backend \
   --platform managed \
   --allow-unauthenticated \
   --port 8080 \
-  --set-env-vars "CORS_ORIGINS=https://byte-dance-application.vercel.app,https://byte-dance-application-*.vercel.app,DEER_FLOW_CONFIG_PATH=/app/config.cloudrun.yaml" \
+  --set-env-vars "CORS_ORIGINS=https://byte-dance-application.vercel.app https://byte-dance-application-*.vercel.app,DEER_FLOW_CONFIG_PATH=/app/config.cloudrun.yaml" \
   --set-secrets "TAVILY_API_KEY=tavily-api-key:latest,DEEPSEEK_API_KEY=deepseek-api-key:latest,DEERFLOW_PG_DSN=DEERFLOW_PG_DSN:latest" \
   --add-cloudsql-instances bytedance-490020:us-central1:deerflow-db \
   --memory 2Gi \
   --cpu 2 \
   --min-instances 0 \
   --max-instances 5 \
-  --timeout 600
+  --timeout 600s
 ```
 
 **Checkpointer:** The command above uses `config.cloudrun.yaml` (Postgres) and injects `DEERFLOW_PG_DSN` from the Secret Manager secret named `DEERFLOW_PG_DSN`. Ensure that secret exists and the Cloud Run service account has `roles/secretmanager.secretAccessor` on it (see [1.2](#12-create-secrets-secret-manager)); also grant `roles/cloudsql.client` if using a private Cloud SQL instance. The instance name in `--add-cloudsql-instances` must match your Cloud SQL instance (e.g. `deerflow-db`).

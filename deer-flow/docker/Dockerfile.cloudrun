@@ -27,8 +27,7 @@ COPY skills ./skills
 COPY extensions_config.example.json ./extensions_config.example.json
 RUN cp /app/extensions_config.example.json /app/extensions_config.json
 
-RUN --mount=type=cache,target=/root/.cache/uv \
-    sh -c "cd backend && uv sync"
+RUN sh -c "cd backend && uv sync"
 
 # Nginx config and start script
 COPY docker/nginx/nginx.cloudrun.conf /etc/nginx/nginx.cloudrun.conf

@@ -1,7 +1,14 @@
 # Cloud Build config for DeerFlow backend (single-container: Nginx + Gateway + LangGraph).
 # Run from repo root: gcloud builds submit --config cloudbuild.yaml --tag gcr.io/PROJECT_ID/deer-flow-backend:latest .
+substitutions:
+  _REGION: us-central1
+  _SERVICE: deer-flow-backend
+  _CLOUDSQL_INSTANCE: bytedance-490020:us-central1:deerflow-db
+  _CORS_ORIGINS: "https://byte-dance-application.vercel.app https://byte-dance-application-*.vercel.app"
+
 steps:
   - name: 'gcr.io/cloud-builders/docker'
+    dir: 'deer-flow'
     args:
       - 'build'
       - '-t'
@@ -9,5 +16,42 @@ steps:
       - '-f'
       - 'docker/Dockerfile.cloudrun'
       - '.'
+
+  - name: 'gcr.io/cloud-builders/docker'
+    dir: 'deer-flow'
+    args:
+      - 'push'
+      - 'gcr.io/$PROJECT_ID/deer-flow-backend:latest'
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args:
+      - 'run'
+      - 'deploy'
+      - '${_SERVICE}'
+      - '--image'
+      - 'gcr.io/$PROJECT_ID/deer-flow-backend:latest'
+      - '--region'
+      - '${_REGION}'
+      - '--platform'
+      - 'managed'
+      - '--allow-unauthenticated'
+      - '--port'
+      - '8080'
+      - '--set-env-vars'
+      - 'CORS_ORIGINS=${_CORS_ORIGINS},DEER_FLOW_CONFIG_PATH=/app/config.cloudrun.yaml'
+      - '--set-secrets'
+      - 'TAVILY_API_KEY=tavily-api-key:latest,DEEPSEEK_API_KEY=deepseek-api-key:latest,DEERFLOW_PG_DSN=DEERFLOW_PG_DSN:latest'
+      - '--add-cloudsql-instances'
+      - '${_CLOUDSQL_INSTANCE}'
+      - '--memory'
+      - '2Gi'
+      - '--cpu'
+      - '2'
+      - '--min-instances'
+      - '0'
+      - '--max-instances'
+      - '5'
+      - '--timeout'
+      - '600s'
 images:
-  - 'gcr.io/bytedance-490020/deer-flow-backend:latest'
+  - 'gcr.io/$PROJECT_ID/deer-flow-backend:latest'
