@@ -60,18 +60,18 @@ models:
   #   supports_vision: true
 
   # Example: DeepSeek model (with thinking support)
-  # - name: deepseek-v3
-  #   display_name: DeepSeek V3 (Thinking)
-  #   use: src.models.patched_deepseek:PatchedChatDeepSeek
-  #   model: deepseek-reasoner
-  #   api_key: $DEEPSEEK_API_KEY
-  #   max_tokens: 16384
-  #   supports_thinking: true
-  #   supports_vision: false  # DeepSeek V3 does not support vision
-  #   when_thinking_enabled:
-  #     extra_body:
-  #       thinking:
-  #         type: enabled
+  - name: deepseek-v3
+    display_name: DeepSeek V3 (Thinking)
+    use: src.models.patched_deepseek:PatchedChatDeepSeek
+    model: deepseek-reasoner
+    api_key: $DEEPSEEK_API_KEY
+    max_tokens: 16384
+    supports_thinking: true
+    supports_vision: false  # DeepSeek V3 does not support vision
+    when_thinking_enabled:
+      extra_body:
+        thinking:
+          type: enabled
 
   # Example: Kimi K2.5 model
   # - name: kimi-k2.5

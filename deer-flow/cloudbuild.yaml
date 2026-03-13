@@ -3,7 +3,7 @@
 substitutions:
   _REGION: us-central1
   _SERVICE: deer-flow-backend
-  _CLOUDSQL_INSTANCE: bytedance-490020:us-central1:deerflow-db
+  _CLOUDSQL_INSTANCE: "bytedance-490020:us-central1:deerflow-db,bytedance-490020:us-central1:free-trial-first-project"
   _CORS_ORIGINS: "https://byte-dance-application.vercel.app https://byte-dance-application-*.vercel.app"
 
 steps:

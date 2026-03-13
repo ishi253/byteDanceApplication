@@ -1,0 +1,993 @@
+---------------------------------------------------- REMOTE BUILD OUTPUT -----------------------------------------------------
+starting build "01a99adf-94aa-4727-90df-198b1e2522a2"
+
+FETCHSOURCE
+Fetching storage object: gs://bytedance-490020_cloudbuild/source/1773371668.056052-ca8d94b3415d4b508220a5e22389b909.tgz#1773371822800224
+Copying gs://bytedance-490020_cloudbuild/source/1773371668.056052-ca8d94b3415d4b508220a5e22389b909.tgz#1773371822800224...
+| [1 files][229.0 MiB/229.0 MiB]                                                
+Operation completed over 1 objects/229.0 MiB.
+BUILD
+Starting Step #0
+Step #0: Already have image (with digest): gcr.io/cloud-builders/docker
+Step #0: Sending build context to Docker daemon  18.05MB
+Step #0: Step 1/18 : FROM python:3.12-slim
+Step #0: 3.12-slim: Pulling from library/python
+Step #0: 206356c42440: Already exists
+Step #0: 30dad65d3b24: Pulling fs layer
+Step #0: 5d7ccc6599a6: Pulling fs layer
+Step #0: b9aab63c297c: Pulling fs layer
+Step #0: 30dad65d3b24: Verifying Checksum
+Step #0: 30dad65d3b24: Download complete
+Step #0: b9aab63c297c: Verifying Checksum
+Step #0: b9aab63c297c: Download complete
+Step #0: 5d7ccc6599a6: Verifying Checksum
+Step #0: 5d7ccc6599a6: Download complete
+Step #0: 30dad65d3b24: Pull complete
+Step #0: 5d7ccc6599a6: Pull complete
+Step #0: b9aab63c297c: Pull complete
+Step #0: Digest: sha256:ccc7089399c8bb65dd1fb3ed6d55efa538a3f5e7fca3f5988ac3b5b87e593bf0
+Step #0: Status: Downloaded newer image for python:3.12-slim
+Step #0:  ---> 6f90d4a79e7a
+Step #0: Step 2/18 : RUN apt-get update && apt-get install -y --no-install-recommends     curl     nginx     build-essential     && rm -rf /var/lib/apt/lists/*
+Step #0:  ---> Running in ba9045dac3e5
+Step #0: Hit:1 http://deb.debian.org/debian trixie InRelease
+Step #0: Get:2 http://deb.debian.org/debian trixie-updates InRelease [47.3 kB]
+Step #0: Get:3 http://deb.debian.org/debian-security trixie-security InRelease [43.4 kB]
+Step #0: Get:4 http://deb.debian.org/debian trixie/main amd64 Packages [9670 kB]
+Step #0: Get:5 http://deb.debian.org/debian trixie-updates/main amd64 Packages [5412 B]
+Step #0: Get:6 http://deb.debian.org/debian-security trixie-security/main amd64 Packages [111 kB]
+Step #0: Fetched 9878 kB in 1s (10.9 MB/s)
+Step #0: Reading package lists...
+Step #0: Reading package lists...
+Step #0: Building dependency tree...
+Step #0: Reading state information...
+Step #0: The following additional packages will be installed:
+Step #0:   binutils binutils-common binutils-x86-64-linux-gnu bzip2 cpp cpp-14
+Step #0:   cpp-14-x86-64-linux-gnu cpp-x86-64-linux-gnu dpkg-dev g++ g++-14
+Step #0:   g++-14-x86-64-linux-gnu g++-x86-64-linux-gnu gcc gcc-14
+Step #0:   gcc-14-x86-64-linux-gnu gcc-x86-64-linux-gnu iproute2 libasan8 libatomic1
+Step #0:   libbinutils libbpf1 libbrotli1 libc-dev-bin libc6-dev libcap2-bin libcc1-0
+Step #0:   libcom-err2 libcrypt-dev libctf-nobfd0 libctf0 libcurl4t64 libdpkg-perl
+Step #0:   libelf1t64 libgcc-14-dev libgdbm-compat4t64 libgnutls30t64 libgomp1
+Step #0:   libgprofng0 libgssapi-krb5-2 libhwasan0 libidn2-0 libisl23 libitm1
+Step #0:   libjansson4 libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libldap2
+Step #0:   liblsan0 libmnl0 libmpc3 libmpfr6 libnghttp2-14 libnghttp3-9 libp11-kit0
+Step #0:   libperl5.40 libpsl5t64 libquadmath0 librtmp1 libsasl2-2 libsasl2-modules-db
+Step #0:   libsframe1 libssh2-1t64 libstdc++-14-dev libtasn1-6 libtirpc-common
+Step #0:   libtirpc3t64 libtsan2 libubsan1 libunistring5 libxtables12 linux-libc-dev
+Step #0:   make nginx-common patch perl perl-modules-5.40 rpcsvc-proto xz-utils
+Step #0: Suggested packages:
+Step #0:   binutils-doc gprofng-gui binutils-gold bzip2-doc cpp-doc gcc-14-locales
+Step #0:   cpp-14-doc debian-keyring debian-tag2upload-keyring g++-multilib
+Step #0:   g++-14-multilib gcc-14-doc gcc-multilib manpages-dev autoconf automake
+Step #0:   libtool flex bison gdb gcc-doc gcc-14-multilib gdb-x86-64-linux-gnu
+Step #0:   python3:any libc-devtools glibc-doc sq | sqop | rsop | gosop
+Step #0:   | pgpainless-cli | gpg-sq | gnupg sensible-utils git bzr gnutls-bin krb5-doc
+Step #0:   krb5-user libstdc++-14-doc make-doc fcgiwrap nginx-doc ssl-cert ed
+Step #0:   diffutils-doc perl-doc libterm-readline-gnu-perl
+Step #0:   | libterm-readline-perl-perl libtap-harness-archive-perl
+Step #0: Recommended packages:
+Step #0:   bash-completion fakeroot sq | sqop | rsop | gosop | pgpainless-cli | gpg-sq
+Step #0:   | gnupg libalgorithm-merge-perl manpages manpages-dev libpam-cap
+Step #0:   libfile-fcntllock-perl liblocale-gettext-perl krb5-locales libldap-common
+Step #0:   publicsuffix libsasl2-modules
+Step #0: The following NEW packages will be installed:
+Step #0:   binutils binutils-common binutils-x86-64-linux-gnu build-essential bzip2 cpp
+Step #0:   cpp-14 cpp-14-x86-64-linux-gnu cpp-x86-64-linux-gnu curl dpkg-dev g++ g++-14
+Step #0:   g++-14-x86-64-linux-gnu g++-x86-64-linux-gnu gcc gcc-14
+Step #0:   gcc-14-x86-64-linux-gnu gcc-x86-64-linux-gnu iproute2 libasan8 libatomic1
+Step #0:   libbinutils libbpf1 libbrotli1 libc-dev-bin libc6-dev libcap2-bin libcc1-0
+Step #0:   libcom-err2 libcrypt-dev libctf-nobfd0 libctf0 libcurl4t64 libdpkg-perl
+Step #0:   libelf1t64 libgcc-14-dev libgdbm-compat4t64 libgnutls30t64 libgomp1
+Step #0:   libgprofng0 libgssapi-krb5-2 libhwasan0 libidn2-0 libisl23 libitm1
+Step #0:   libjansson4 libk5crypto3 libkeyutils1 libkrb5-3 libkrb5support0 libldap2
+Step #0:   liblsan0 libmnl0 libmpc3 libmpfr6 libnghttp2-14 libnghttp3-9 libp11-kit0
+Step #0:   libperl5.40 libpsl5t64 libquadmath0 librtmp1 libsasl2-2 libsasl2-modules-db
+Step #0:   libsframe1 libssh2-1t64 libstdc++-14-dev libtasn1-6 libtirpc-common
+Step #0:   libtirpc3t64 libtsan2 libubsan1 libunistring5 libxtables12 linux-libc-dev
+Step #0:   make nginx nginx-common patch perl perl-modules-5.40 rpcsvc-proto xz-utils
+Step #0: 0 upgraded, 84 newly installed, 0 to remove and 0 not upgraded.
+Step #0: Need to get 89.6 MB of archives.
+Step #0: After this operation, 359 MB of additional disk space will be used.
+Step #0: Get:1 http://deb.debian.org/debian trixie/main amd64 libelf1t64 amd64 0.192-4 [189 kB]
+Step #0: Get:2 http://deb.debian.org/debian trixie/main amd64 libbpf1 amd64 1:1.5.0-3 [169 kB]
+Step #0: Get:3 http://deb.debian.org/debian trixie/main amd64 libmnl0 amd64 1.0.5-3 [11.9 kB]
+Step #0: Get:4 http://deb.debian.org/debian trixie/main amd64 libkrb5support0 amd64 1.21.3-5 [33.0 kB]
+Step #0: Get:5 http://deb.debian.org/debian trixie/main amd64 libcom-err2 amd64 1.47.2-3+b7 [25.0 kB]
+Step #0: Get:6 http://deb.debian.org/debian trixie/main amd64 libk5crypto3 amd64 1.21.3-5 [81.5 kB]
+Step #0: Get:7 http://deb.debian.org/debian trixie/main amd64 libkeyutils1 amd64 1.6.3-6 [9456 B]
+Step #0: Get:8 http://deb.debian.org/debian trixie/main amd64 libkrb5-3 amd64 1.21.3-5 [326 kB]
+Step #0: Get:9 http://deb.debian.org/debian trixie/main amd64 libgssapi-krb5-2 amd64 1.21.3-5 [138 kB]
+Step #0: Get:10 http://deb.debian.org/debian trixie/main amd64 libtirpc-common all 1.3.6+ds-1 [11.0 kB]
+Step #0: Get:11 http://deb.debian.org/debian trixie/main amd64 libtirpc3t64 amd64 1.3.6+ds-1 [83.3 kB]
+Step #0: Get:12 http://deb.debian.org/debian trixie/main amd64 libxtables12 amd64 1.8.11-2 [31.9 kB]
+Step #0: Get:13 http://deb.debian.org/debian trixie/main amd64 libcap2-bin amd64 1:2.75-10+b3 [36.4 kB]
+Step #0: Get:14 http://deb.debian.org/debian trixie/main amd64 iproute2 amd64 6.15.0-1 [1089 kB]
+Step #0: Get:15 http://deb.debian.org/debian trixie/main amd64 bzip2 amd64 1.0.8-6 [40.5 kB]
+Step #0: Get:16 http://deb.debian.org/debian trixie/main amd64 perl-modules-5.40 all 5.40.1-6 [3019 kB]
+Step #0: Get:17 http://deb.debian.org/debian trixie/main amd64 libgdbm-compat4t64 amd64 1.24-2 [50.3 kB]
+Step #0: Get:18 http://deb.debian.org/debian trixie/main amd64 libperl5.40 amd64 5.40.1-6 [4341 kB]
+Step #0: Get:19 http://deb.debian.org/debian trixie/main amd64 perl amd64 5.40.1-6 [267 kB]
+Step #0: Get:20 http://deb.debian.org/debian trixie/main amd64 xz-utils amd64 5.8.1-1 [660 kB]
+Step #0: Get:21 http://deb.debian.org/debian trixie/main amd64 libsframe1 amd64 2.44-3 [78.4 kB]
+Step #0: Get:22 http://deb.debian.org/debian trixie/main amd64 binutils-common amd64 2.44-3 [2509 kB]
+Step #0: Get:23 http://deb.debian.org/debian trixie/main amd64 libbinutils amd64 2.44-3 [534 kB]
+Step #0: Get:24 http://deb.debian.org/debian trixie/main amd64 libgprofng0 amd64 2.44-3 [808 kB]
+Step #0: Get:25 http://deb.debian.org/debian trixie/main amd64 libctf-nobfd0 amd64 2.44-3 [156 kB]
+Step #0: Get:26 http://deb.debian.org/debian trixie/main amd64 libctf0 amd64 2.44-3 [88.6 kB]
+Step #0: Get:27 http://deb.debian.org/debian trixie/main amd64 libjansson4 amd64 2.14-2+b3 [39.8 kB]
+Step #0: Get:28 http://deb.debian.org/debian trixie/main amd64 binutils-x86-64-linux-gnu amd64 2.44-3 [1014 kB]
+Step #0: Get:29 http://deb.debian.org/debian trixie/main amd64 binutils amd64 2.44-3 [265 kB]
+Step #0: Get:30 http://deb.debian.org/debian trixie/main amd64 libc-dev-bin amd64 2.41-12+deb13u1 [58.5 kB]
+Step #0: Get:31 http://deb.debian.org/debian-security trixie-security/main amd64 linux-libc-dev all 6.12.74-2 [2746 kB]
+Step #0: Get:32 http://deb.debian.org/debian trixie/main amd64 libcrypt-dev amd64 1:4.4.38-1 [119 kB]
+Step #0: Get:33 http://deb.debian.org/debian trixie/main amd64 rpcsvc-proto amd64 1.4.3-1 [63.3 kB]
+Step #0: Get:34 http://deb.debian.org/debian trixie/main amd64 libc6-dev amd64 2.41-12+deb13u1 [1994 kB]
+Step #0: Get:35 http://deb.debian.org/debian trixie/main amd64 libisl23 amd64 0.27-1 [659 kB]
+Step #0: Get:36 http://deb.debian.org/debian trixie/main amd64 libmpfr6 amd64 4.2.2-1 [729 kB]
+Step #0: Get:37 http://deb.debian.org/debian trixie/main amd64 libmpc3 amd64 1.3.1-1+b3 [52.2 kB]
+Step #0: Get:38 http://deb.debian.org/debian trixie/main amd64 cpp-14-x86-64-linux-gnu amd64 14.2.0-19 [11.0 MB]
+Step #0: Get:39 http://deb.debian.org/debian trixie/main amd64 cpp-14 amd64 14.2.0-19 [1280 B]
+Step #0: Get:40 http://deb.debian.org/debian trixie/main amd64 cpp-x86-64-linux-gnu amd64 4:14.2.0-1 [4840 B]
+Step #0: Get:41 http://deb.debian.org/debian trixie/main amd64 cpp amd64 4:14.2.0-1 [1568 B]
+Step #0: Get:42 http://deb.debian.org/debian trixie/main amd64 libcc1-0 amd64 14.2.0-19 [42.8 kB]
+Step #0: Get:43 http://deb.debian.org/debian trixie/main amd64 libgomp1 amd64 14.2.0-19 [137 kB]
+Step #0: Get:44 http://deb.debian.org/debian trixie/main amd64 libitm1 amd64 14.2.0-19 [26.0 kB]
+Step #0: Get:45 http://deb.debian.org/debian trixie/main amd64 libatomic1 amd64 14.2.0-19 [9308 B]
+Step #0: Get:46 http://deb.debian.org/debian trixie/main amd64 libasan8 amd64 14.2.0-19 [2725 kB]
+Step #0: Get:47 http://deb.debian.org/debian trixie/main amd64 liblsan0 amd64 14.2.0-19 [1204 kB]
+Step #0: Get:48 http://deb.debian.org/debian trixie/main amd64 libtsan2 amd64 14.2.0-19 [2460 kB]
+Step #0: Get:49 http://deb.debian.org/debian trixie/main amd64 libubsan1 amd64 14.2.0-19 [1074 kB]
+Step #0: Get:50 http://deb.debian.org/debian trixie/main amd64 libhwasan0 amd64 14.2.0-19 [1488 kB]
+Step #0: Get:51 http://deb.debian.org/debian trixie/main amd64 libquadmath0 amd64 14.2.0-19 [145 kB]
+Step #0: Get:52 http://deb.debian.org/debian trixie/main amd64 libgcc-14-dev amd64 14.2.0-19 [2672 kB]
+Step #0: Get:53 http://deb.debian.org/debian trixie/main amd64 gcc-14-x86-64-linux-gnu amd64 14.2.0-19 [21.4 MB]
+Step #0: Get:54 http://deb.debian.org/debian trixie/main amd64 gcc-14 amd64 14.2.0-19 [540 kB]
+Step #0: Get:55 http://deb.debian.org/debian trixie/main amd64 gcc-x86-64-linux-gnu amd64 4:14.2.0-1 [1436 B]
+Step #0: Get:56 http://deb.debian.org/debian trixie/main amd64 gcc amd64 4:14.2.0-1 [5136 B]
+Step #0: Get:57 http://deb.debian.org/debian trixie/main amd64 libstdc++-14-dev amd64 14.2.0-19 [2376 kB]
+Step #0: Get:58 http://deb.debian.org/debian trixie/main amd64 g++-14-x86-64-linux-gnu amd64 14.2.0-19 [12.1 MB]
+Step #0: Get:59 http://deb.debian.org/debian trixie/main amd64 g++-14 amd64 14.2.0-19 [22.5 kB]
+Step #0: Get:60 http://deb.debian.org/debian trixie/main amd64 g++-x86-64-linux-gnu amd64 4:14.2.0-1 [1200 B]
+Step #0: Get:61 http://deb.debian.org/debian trixie/main amd64 g++ amd64 4:14.2.0-1 [1344 B]
+Step #0: Get:62 http://deb.debian.org/debian trixie/main amd64 make amd64 4.4.1-2 [463 kB]
+Step #0: Get:63 http://deb.debian.org/debian trixie/main amd64 libdpkg-perl all 1.22.21 [650 kB]
+Step #0: Get:64 http://deb.debian.org/debian trixie/main amd64 patch amd64 2.8-2 [134 kB]
+Step #0: Get:65 http://deb.debian.org/debian trixie/main amd64 dpkg-dev all 1.22.21 [1338 kB]
+Step #0: Get:66 http://deb.debian.org/debian trixie/main amd64 build-essential amd64 12.12 [4624 B]
+Step #0: Get:67 http://deb.debian.org/debian trixie/main amd64 libbrotli1 amd64 1.1.0-2+b7 [307 kB]
+Step #0: Get:68 http://deb.debian.org/debian trixie/main amd64 libunistring5 amd64 1.3-2 [477 kB]
+Step #0: Get:69 http://deb.debian.org/debian trixie/main amd64 libidn2-0 amd64 2.3.8-2 [109 kB]
+Step #0: Get:70 http://deb.debian.org/debian trixie/main amd64 libsasl2-modules-db amd64 2.1.28+dfsg1-9 [19.8 kB]
+Step #0: Get:71 http://deb.debian.org/debian trixie/main amd64 libsasl2-2 amd64 2.1.28+dfsg1-9 [57.5 kB]
+Step #0: Get:72 http://deb.debian.org/debian trixie/main amd64 libldap2 amd64 2.6.10+dfsg-1 [194 kB]
+Step #0: Get:73 http://deb.debian.org/debian trixie/main amd64 libnghttp2-14 amd64 1.64.0-1.1 [76.0 kB]
+Step #0: Get:74 http://deb.debian.org/debian trixie/main amd64 libnghttp3-9 amd64 1.8.0-1 [67.7 kB]
+Step #0: Get:75 http://deb.debian.org/debian trixie/main amd64 libpsl5t64 amd64 0.21.2-1.1+b1 [57.2 kB]
+Step #0: Get:76 http://deb.debian.org/debian trixie/main amd64 libp11-kit0 amd64 0.25.5-3 [425 kB]
+Step #0: Get:77 http://deb.debian.org/debian trixie/main amd64 libtasn1-6 amd64 4.20.0-2 [49.9 kB]
+Step #0: Get:78 http://deb.debian.org/debian-security trixie-security/main amd64 libgnutls30t64 amd64 3.8.9-3+deb13u2 [1468 kB]
+Step #0: Get:79 http://deb.debian.org/debian trixie/main amd64 librtmp1 amd64 2.4+20151223.gitfa8646d.1-2+b5 [58.8 kB]
+Step #0: Get:80 http://deb.debian.org/debian trixie/main amd64 libssh2-1t64 amd64 1.11.1-1 [245 kB]
+Step #0: Get:81 http://deb.debian.org/debian trixie/main amd64 libcurl4t64 amd64 8.14.1-2+deb13u2 [391 kB]
+Step #0: Get:82 http://deb.debian.org/debian trixie/main amd64 curl amd64 8.14.1-2+deb13u2 [270 kB]
+Step #0: Get:83 http://deb.debian.org/debian-security trixie-security/main amd64 nginx-common all 1.26.3-3+deb13u2 [109 kB]
+Step #0: Get:84 http://deb.debian.org/debian-security trixie-security/main amd64 nginx amd64 1.26.3-3+deb13u2 [609 kB]
+Step #0: debconf: unable to initialize frontend: Dialog
+Step #0: debconf: (TERM is not set, so the dialog frontend is not usable.)
+Step #0: debconf: falling back to frontend: Readline
+Step #0: debconf: unable to initialize frontend: Readline
+Step #0: debconf: (Can't locate Term/ReadLine.pm in @INC (you may need to install the Term::ReadLine module) (@INC entries checked: /etc/perl /usr/local/lib/x86_64-linux-gnu/perl/5.40.1 /usr/local/share/perl/5.40.1 /usr/lib/x86_64-linux-gnu/perl5/5.40 /usr/share/perl5 /usr/lib/x86_64-linux-gnu/perl-base /usr/lib/x86_64-linux-gnu/perl/5.40 /usr/share/perl/5.40 /usr/local/lib/site_perl) at /usr/share/perl5/Debconf/FrontEnd/Readline.pm line 8, <STDIN> line 84.)
+Step #0: debconf: falling back to frontend: Teletype
+Step #0: debconf: unable to initialize frontend: Teletype
+Step #0: debconf: (This frontend requires a controlling tty.)
+Step #0: debconf: falling back to frontend: Noninteractive
+Step #0: Preconfiguring packages ...
+Step #0: Fetched 89.6 MB in 1s (142 MB/s)
+Step #0: Selecting previously unselected package libelf1t64:amd64.
+(Reading database ... 5645 files and directories currently installed.)
+Step #0: Preparing to unpack .../00-libelf1t64_0.192-4_amd64.deb ...
+Step #0: Unpacking libelf1t64:amd64 (0.192-4) ...
+Step #0: Selecting previously unselected package libbpf1:amd64.
+Step #0: Preparing to unpack .../01-libbpf1_1%3a1.5.0-3_amd64.deb ...
+Step #0: Unpacking libbpf1:amd64 (1:1.5.0-3) ...
+Step #0: Selecting previously unselected package libmnl0:amd64.
+Step #0: Preparing to unpack .../02-libmnl0_1.0.5-3_amd64.deb ...
+Step #0: Unpacking libmnl0:amd64 (1.0.5-3) ...
+Step #0: Selecting previously unselected package libkrb5support0:amd64.
+Step #0: Preparing to unpack .../03-libkrb5support0_1.21.3-5_amd64.deb ...
+Step #0: Unpacking libkrb5support0:amd64 (1.21.3-5) ...
+Step #0: Selecting previously unselected package libcom-err2:amd64.
+Step #0: Preparing to unpack .../04-libcom-err2_1.47.2-3+b7_amd64.deb ...
+Step #0: Unpacking libcom-err2:amd64 (1.47.2-3+b7) ...
+Step #0: Selecting previously unselected package libk5crypto3:amd64.
+Step #0: Preparing to unpack .../05-libk5crypto3_1.21.3-5_amd64.deb ...
+Step #0: Unpacking libk5crypto3:amd64 (1.21.3-5) ...
+Step #0: Selecting previously unselected package libkeyutils1:amd64.
+Step #0: Preparing to unpack .../06-libkeyutils1_1.6.3-6_amd64.deb ...
+Step #0: Unpacking libkeyutils1:amd64 (1.6.3-6) ...
+Step #0: Selecting previously unselected package libkrb5-3:amd64.
+Step #0: Preparing to unpack .../07-libkrb5-3_1.21.3-5_amd64.deb ...
+Step #0: Unpacking libkrb5-3:amd64 (1.21.3-5) ...
+Step #0: Selecting previously unselected package libgssapi-krb5-2:amd64.
+Step #0: Preparing to unpack .../08-libgssapi-krb5-2_1.21.3-5_amd64.deb ...
+Step #0: Unpacking libgssapi-krb5-2:amd64 (1.21.3-5) ...
+Step #0: Selecting previously unselected package libtirpc-common.
+Step #0: Preparing to unpack .../09-libtirpc-common_1.3.6+ds-1_all.deb ...
+Step #0: Unpacking libtirpc-common (1.3.6+ds-1) ...
+Step #0: Selecting previously unselected package libtirpc3t64:amd64.
+Step #0: Preparing to unpack .../10-libtirpc3t64_1.3.6+ds-1_amd64.deb ...
+Step #0: Adding 'diversion of /lib/x86_64-linux-gnu/libtirpc.so.3 to /lib/x86_64-linux-gnu/libtirpc.so.3.usr-is-merged by libtirpc3t64'
+Step #0: Adding 'diversion of /lib/x86_64-linux-gnu/libtirpc.so.3.0.0 to /lib/x86_64-linux-gnu/libtirpc.so.3.0.0.usr-is-merged by libtirpc3t64'
+Step #0: Unpacking libtirpc3t64:amd64 (1.3.6+ds-1) ...
+Step #0: Selecting previously unselected package libxtables12:amd64.
+Step #0: Preparing to unpack .../11-libxtables12_1.8.11-2_amd64.deb ...
+Step #0: Unpacking libxtables12:amd64 (1.8.11-2) ...
+Step #0: Selecting previously unselected package libcap2-bin.
+Step #0: Preparing to unpack .../12-libcap2-bin_1%3a2.75-10+b3_amd64.deb ...
+Step #0: Unpacking libcap2-bin (1:2.75-10+b3) ...
+Step #0: Selecting previously unselected package iproute2.
+Step #0: Preparing to unpack .../13-iproute2_6.15.0-1_amd64.deb ...
+Step #0: Unpacking iproute2 (6.15.0-1) ...
+Step #0: Selecting previously unselected package bzip2.
+Step #0: Preparing to unpack .../14-bzip2_1.0.8-6_amd64.deb ...
+Step #0: Unpacking bzip2 (1.0.8-6) ...
+Step #0: Selecting previously unselected package perl-modules-5.40.
+Step #0: Preparing to unpack .../15-perl-modules-5.40_5.40.1-6_all.deb ...
+Step #0: Unpacking perl-modules-5.40 (5.40.1-6) ...
+Step #0: Selecting previously unselected package libgdbm-compat4t64:amd64.
+Step #0: Preparing to unpack .../16-libgdbm-compat4t64_1.24-2_amd64.deb ...
+Step #0: Unpacking libgdbm-compat4t64:amd64 (1.24-2) ...
+Step #0: Selecting previously unselected package libperl5.40:amd64.
+Step #0: Preparing to unpack .../17-libperl5.40_5.40.1-6_amd64.deb ...
+Step #0: Unpacking libperl5.40:amd64 (5.40.1-6) ...
+Step #0: Selecting previously unselected package perl.
+Step #0: Preparing to unpack .../18-perl_5.40.1-6_amd64.deb ...
+Step #0: Unpacking perl (5.40.1-6) ...
+Step #0: Selecting previously unselected package xz-utils.
+Step #0: Preparing to unpack .../19-xz-utils_5.8.1-1_amd64.deb ...
+Step #0: Unpacking xz-utils (5.8.1-1) ...
+Step #0: Selecting previously unselected package libsframe1:amd64.
+Step #0: Preparing to unpack .../20-libsframe1_2.44-3_amd64.deb ...
+Step #0: Unpacking libsframe1:amd64 (2.44-3) ...
+Step #0: Selecting previously unselected package binutils-common:amd64.
+Step #0: Preparing to unpack .../21-binutils-common_2.44-3_amd64.deb ...
+Step #0: Unpacking binutils-common:amd64 (2.44-3) ...
+Step #0: Selecting previously unselected package libbinutils:amd64.
+Step #0: Preparing to unpack .../22-libbinutils_2.44-3_amd64.deb ...
+Step #0: Unpacking libbinutils:amd64 (2.44-3) ...
+Step #0: Selecting previously unselected package libgprofng0:amd64.
+Step #0: Preparing to unpack .../23-libgprofng0_2.44-3_amd64.deb ...
+Step #0: Unpacking libgprofng0:amd64 (2.44-3) ...
+Step #0: Selecting previously unselected package libctf-nobfd0:amd64.
+Step #0: Preparing to unpack .../24-libctf-nobfd0_2.44-3_amd64.deb ...
+Step #0: Unpacking libctf-nobfd0:amd64 (2.44-3) ...
+Step #0: Selecting previously unselected package libctf0:amd64.
+Step #0: Preparing to unpack .../25-libctf0_2.44-3_amd64.deb ...
+Step #0: Unpacking libctf0:amd64 (2.44-3) ...
+Step #0: Selecting previously unselected package libjansson4:amd64.
+Step #0: Preparing to unpack .../26-libjansson4_2.14-2+b3_amd64.deb ...
+Step #0: Unpacking libjansson4:amd64 (2.14-2+b3) ...
+Step #0: Selecting previously unselected package binutils-x86-64-linux-gnu.
+Step #0: Preparing to unpack .../27-binutils-x86-64-linux-gnu_2.44-3_amd64.deb ...
+Step #0: Unpacking binutils-x86-64-linux-gnu (2.44-3) ...
+Step #0: Selecting previously unselected package binutils.
+Step #0: Preparing to unpack .../28-binutils_2.44-3_amd64.deb ...
+Step #0: Unpacking binutils (2.44-3) ...
+Step #0: Selecting previously unselected package libc-dev-bin.
+Step #0: Preparing to unpack .../29-libc-dev-bin_2.41-12+deb13u1_amd64.deb ...
+Step #0: Unpacking libc-dev-bin (2.41-12+deb13u1) ...
+Step #0: Selecting previously unselected package linux-libc-dev.
+Step #0: Preparing to unpack .../30-linux-libc-dev_6.12.74-2_all.deb ...
+Step #0: Unpacking linux-libc-dev (6.12.74-2) ...
+Step #0: Selecting previously unselected package libcrypt-dev:amd64.
+Step #0: Preparing to unpack .../31-libcrypt-dev_1%3a4.4.38-1_amd64.deb ...
+Step #0: Unpacking libcrypt-dev:amd64 (1:4.4.38-1) ...
+Step #0: Selecting previously unselected package rpcsvc-proto.
+Step #0: Preparing to unpack .../32-rpcsvc-proto_1.4.3-1_amd64.deb ...
+Step #0: Unpacking rpcsvc-proto (1.4.3-1) ...
+Step #0: Selecting previously unselected package libc6-dev:amd64.
+Step #0: Preparing to unpack .../33-libc6-dev_2.41-12+deb13u1_amd64.deb ...
+Step #0: Unpacking libc6-dev:amd64 (2.41-12+deb13u1) ...
+Step #0: Selecting previously unselected package libisl23:amd64.
+Step #0: Preparing to unpack .../34-libisl23_0.27-1_amd64.deb ...
+Step #0: Unpacking libisl23:amd64 (0.27-1) ...
+Step #0: Selecting previously unselected package libmpfr6:amd64.
+Step #0: Preparing to unpack .../35-libmpfr6_4.2.2-1_amd64.deb ...
+Step #0: Unpacking libmpfr6:amd64 (4.2.2-1) ...
+Step #0: Selecting previously unselected package libmpc3:amd64.
+Step #0: Preparing to unpack .../36-libmpc3_1.3.1-1+b3_amd64.deb ...
+Step #0: Unpacking libmpc3:amd64 (1.3.1-1+b3) ...
+Step #0: Selecting previously unselected package cpp-14-x86-64-linux-gnu.
+Step #0: Preparing to unpack .../37-cpp-14-x86-64-linux-gnu_14.2.0-19_amd64.deb ...
+Step #0: Unpacking cpp-14-x86-64-linux-gnu (14.2.0-19) ...
+Step #0: Selecting previously unselected package cpp-14.
+Step #0: Preparing to unpack .../38-cpp-14_14.2.0-19_amd64.deb ...
+Step #0: Unpacking cpp-14 (14.2.0-19) ...
+Step #0: Selecting previously unselected package cpp-x86-64-linux-gnu.
+Step #0: Preparing to unpack .../39-cpp-x86-64-linux-gnu_4%3a14.2.0-1_amd64.deb ...
+Step #0: Unpacking cpp-x86-64-linux-gnu (4:14.2.0-1) ...
+Step #0: Selecting previously unselected package cpp.
+Step #0: Preparing to unpack .../40-cpp_4%3a14.2.0-1_amd64.deb ...
+Step #0: Unpacking cpp (4:14.2.0-1) ...
+Step #0: Selecting previously unselected package libcc1-0:amd64.
+Step #0: Preparing to unpack .../41-libcc1-0_14.2.0-19_amd64.deb ...
+Step #0: Unpacking libcc1-0:amd64 (14.2.0-19) ...
+Step #0: Selecting previously unselected package libgomp1:amd64.
+Step #0: Preparing to unpack .../42-libgomp1_14.2.0-19_amd64.deb ...
+Step #0: Unpacking libgomp1:amd64 (14.2.0-19) ...
+Step #0: Selecting previously unselected package libitm1:amd64.
+Step #0: Preparing to unpack .../43-libitm1_14.2.0-19_amd64.deb ...
+Step #0: Unpacking libitm1:amd64 (14.2.0-19) ...
+Step #0: Selecting previously unselected package libatomic1:amd64.
+Step #0: Preparing to unpack .../44-libatomic1_14.2.0-19_amd64.deb ...
+Step #0: Unpacking libatomic1:amd64 (14.2.0-19) ...
+Step #0: Selecting previously unselected package libasan8:amd64.
+Step #0: Preparing to unpack .../45-libasan8_14.2.0-19_amd64.deb ...
+Step #0: Unpacking libasan8:amd64 (14.2.0-19) ...
+Step #0: Selecting previously unselected package liblsan0:amd64.
+Step #0: Preparing to unpack .../46-liblsan0_14.2.0-19_amd64.deb ...
+Step #0: Unpacking liblsan0:amd64 (14.2.0-19) ...
+Step #0: Selecting previously unselected package libtsan2:amd64.
+Step #0: Preparing to unpack .../47-libtsan2_14.2.0-19_amd64.deb ...
+Step #0: Unpacking libtsan2:amd64 (14.2.0-19) ...
+Step #0: Selecting previously unselected package libubsan1:amd64.
+Step #0: Preparing to unpack .../48-libubsan1_14.2.0-19_amd64.deb ...
+Step #0: Unpacking libubsan1:amd64 (14.2.0-19) ...
+Step #0: Selecting previously unselected package libhwasan0:amd64.
+Step #0: Preparing to unpack .../49-libhwasan0_14.2.0-19_amd64.deb ...
+Step #0: Unpacking libhwasan0:amd64 (14.2.0-19) ...
+Step #0: Selecting previously unselected package libquadmath0:amd64.
+Step #0: Preparing to unpack .../50-libquadmath0_14.2.0-19_amd64.deb ...
+Step #0: Unpacking libquadmath0:amd64 (14.2.0-19) ...
+Step #0: Selecting previously unselected package libgcc-14-dev:amd64.
+Step #0: Preparing to unpack .../51-libgcc-14-dev_14.2.0-19_amd64.deb ...
+Step #0: Unpacking libgcc-14-dev:amd64 (14.2.0-19) ...
+Step #0: Selecting previously unselected package gcc-14-x86-64-linux-gnu.
+Step #0: Preparing to unpack .../52-gcc-14-x86-64-linux-gnu_14.2.0-19_amd64.deb ...
+Step #0: Unpacking gcc-14-x86-64-linux-gnu (14.2.0-19) ...
+Step #0: Selecting previously unselected package gcc-14.
+Step #0: Preparing to unpack .../53-gcc-14_14.2.0-19_amd64.deb ...
+Step #0: Unpacking gcc-14 (14.2.0-19) ...
+Step #0: Selecting previously unselected package gcc-x86-64-linux-gnu.
+Step #0: Preparing to unpack .../54-gcc-x86-64-linux-gnu_4%3a14.2.0-1_amd64.deb ...
+Step #0: Unpacking gcc-x86-64-linux-gnu (4:14.2.0-1) ...
+Step #0: Selecting previously unselected package gcc.
+Step #0: Preparing to unpack .../55-gcc_4%3a14.2.0-1_amd64.deb ...
+Step #0: Unpacking gcc (4:14.2.0-1) ...
+Step #0: Selecting previously unselected package libstdc++-14-dev:amd64.
+Step #0: Preparing to unpack .../56-libstdc++-14-dev_14.2.0-19_amd64.deb ...
+Step #0: Unpacking libstdc++-14-dev:amd64 (14.2.0-19) ...
+Step #0: Selecting previously unselected package g++-14-x86-64-linux-gnu.
+Step #0: Preparing to unpack .../57-g++-14-x86-64-linux-gnu_14.2.0-19_amd64.deb ...
+Step #0: Unpacking g++-14-x86-64-linux-gnu (14.2.0-19) ...
+Step #0: Selecting previously unselected package g++-14.
+Step #0: Preparing to unpack .../58-g++-14_14.2.0-19_amd64.deb ...
+Step #0: Unpacking g++-14 (14.2.0-19) ...
+Step #0: Selecting previously unselected package g++-x86-64-linux-gnu.
+Step #0: Preparing to unpack .../59-g++-x86-64-linux-gnu_4%3a14.2.0-1_amd64.deb ...
+Step #0: Unpacking g++-x86-64-linux-gnu (4:14.2.0-1) ...
+Step #0: Selecting previously unselected package g++.
+Step #0: Preparing to unpack .../60-g++_4%3a14.2.0-1_amd64.deb ...
+Step #0: Unpacking g++ (4:14.2.0-1) ...
+Step #0: Selecting previously unselected package make.
+Step #0: Preparing to unpack .../61-make_4.4.1-2_amd64.deb ...
+Step #0: Unpacking make (4.4.1-2) ...
+Step #0: Selecting previously unselected package libdpkg-perl.
+Step #0: Preparing to unpack .../62-libdpkg-perl_1.22.21_all.deb ...
+Step #0: Unpacking libdpkg-perl (1.22.21) ...
+Step #0: Selecting previously unselected package patch.
+Step #0: Preparing to unpack .../63-patch_2.8-2_amd64.deb ...
+Step #0: Unpacking patch (2.8-2) ...
+Step #0: Selecting previously unselected package dpkg-dev.
+Step #0: Preparing to unpack .../64-dpkg-dev_1.22.21_all.deb ...
+Step #0: Unpacking dpkg-dev (1.22.21) ...
+Step #0: Selecting previously unselected package build-essential.
+Step #0: Preparing to unpack .../65-build-essential_12.12_amd64.deb ...
+Step #0: Unpacking build-essential (12.12) ...
+Step #0: Selecting previously unselected package libbrotli1:amd64.
+Step #0: Preparing to unpack .../66-libbrotli1_1.1.0-2+b7_amd64.deb ...
+Step #0: Unpacking libbrotli1:amd64 (1.1.0-2+b7) ...
+Step #0: Selecting previously unselected package libunistring5:amd64.
+Step #0: Preparing to unpack .../67-libunistring5_1.3-2_amd64.deb ...
+Step #0: Unpacking libunistring5:amd64 (1.3-2) ...
+Step #0: Selecting previously unselected package libidn2-0:amd64.
+Step #0: Preparing to unpack .../68-libidn2-0_2.3.8-2_amd64.deb ...
+Step #0: Unpacking libidn2-0:amd64 (2.3.8-2) ...
+Step #0: Selecting previously unselected package libsasl2-modules-db:amd64.
+Step #0: Preparing to unpack .../69-libsasl2-modules-db_2.1.28+dfsg1-9_amd64.deb ...
+Step #0: Unpacking libsasl2-modules-db:amd64 (2.1.28+dfsg1-9) ...
+Step #0: Selecting previously unselected package libsasl2-2:amd64.
+Step #0: Preparing to unpack .../70-libsasl2-2_2.1.28+dfsg1-9_amd64.deb ...
+Step #0: Unpacking libsasl2-2:amd64 (2.1.28+dfsg1-9) ...
+Step #0: Selecting previously unselected package libldap2:amd64.
+Step #0: Preparing to unpack .../71-libldap2_2.6.10+dfsg-1_amd64.deb ...
+Step #0: Unpacking libldap2:amd64 (2.6.10+dfsg-1) ...
+Step #0: Selecting previously unselected package libnghttp2-14:amd64.
+Step #0: Preparing to unpack .../72-libnghttp2-14_1.64.0-1.1_amd64.deb ...
+Step #0: Unpacking libnghttp2-14:amd64 (1.64.0-1.1) ...
+Step #0: Selecting previously unselected package libnghttp3-9:amd64.
+Step #0: Preparing to unpack .../73-libnghttp3-9_1.8.0-1_amd64.deb ...
+Step #0: Unpacking libnghttp3-9:amd64 (1.8.0-1) ...
+Step #0: Selecting previously unselected package libpsl5t64:amd64.
+Step #0: Preparing to unpack .../74-libpsl5t64_0.21.2-1.1+b1_amd64.deb ...
+Step #0: Unpacking libpsl5t64:amd64 (0.21.2-1.1+b1) ...
+Step #0: Selecting previously unselected package libp11-kit0:amd64.
+Step #0: Preparing to unpack .../75-libp11-kit0_0.25.5-3_amd64.deb ...
+Step #0: Unpacking libp11-kit0:amd64 (0.25.5-3) ...
+Step #0: Selecting previously unselected package libtasn1-6:amd64.
+Step #0: Preparing to unpack .../76-libtasn1-6_4.20.0-2_amd64.deb ...
+Step #0: Unpacking libtasn1-6:amd64 (4.20.0-2) ...
+Step #0: Selecting previously unselected package libgnutls30t64:amd64.
+Step #0: Preparing to unpack .../77-libgnutls30t64_3.8.9-3+deb13u2_amd64.deb ...
+Step #0: Unpacking libgnutls30t64:amd64 (3.8.9-3+deb13u2) ...
+Step #0: Selecting previously unselected package librtmp1:amd64.
+Step #0: Preparing to unpack .../78-librtmp1_2.4+20151223.gitfa8646d.1-2+b5_amd64.deb ...
+Step #0: Unpacking librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b5) ...
+Step #0: Selecting previously unselected package libssh2-1t64:amd64.
+Step #0: Preparing to unpack .../79-libssh2-1t64_1.11.1-1_amd64.deb ...
+Step #0: Unpacking libssh2-1t64:amd64 (1.11.1-1) ...
+Step #0: Selecting previously unselected package libcurl4t64:amd64.
+Step #0: Preparing to unpack .../80-libcurl4t64_8.14.1-2+deb13u2_amd64.deb ...
+Step #0: Unpacking libcurl4t64:amd64 (8.14.1-2+deb13u2) ...
+Step #0: Selecting previously unselected package curl.
+Step #0: Preparing to unpack .../81-curl_8.14.1-2+deb13u2_amd64.deb ...
+Step #0: Unpacking curl (8.14.1-2+deb13u2) ...
+Step #0: Selecting previously unselected package nginx-common.
+Step #0: Preparing to unpack .../82-nginx-common_1.26.3-3+deb13u2_all.deb ...
+Step #0: Unpacking nginx-common (1.26.3-3+deb13u2) ...
+Step #0: Selecting previously unselected package nginx.
+Step #0: Preparing to unpack .../83-nginx_1.26.3-3+deb13u2_amd64.deb ...
+Step #0: Unpacking nginx (1.26.3-3+deb13u2) ...
+Step #0: Setting up libkeyutils1:amd64 (1.6.3-6) ...
+Step #0: Setting up libgdbm-compat4t64:amd64 (1.24-2) ...
+Step #0: Setting up libtirpc-common (1.3.6+ds-1) ...
+Step #0: Setting up libbrotli1:amd64 (1.1.0-2+b7) ...
+Step #0: Setting up binutils-common:amd64 (2.44-3) ...
+Step #0: Setting up libnghttp2-14:amd64 (1.64.0-1.1) ...
+Step #0: Setting up linux-libc-dev (6.12.74-2) ...
+Step #0: Setting up libctf-nobfd0:amd64 (2.44-3) ...
+Step #0: Setting up nginx-common (1.26.3-3+deb13u2) ...
+Step #0: debconf: unable to initialize frontend: Dialog
+Step #0: debconf: (TERM is not set, so the dialog frontend is not usable.)
+Step #0: debconf: falling back to frontend: Readline
+Step #0: debconf: unable to initialize frontend: Readline
+Step #0: debconf: (This frontend requires a controlling tty.)
+Step #0: debconf: falling back to frontend: Teletype
+Step #0: debconf: unable to initialize frontend: Teletype
+Step #0: debconf: (This frontend requires a controlling tty.)
+Step #0: debconf: falling back to frontend: Noninteractive
+Step #0: Setting up libcom-err2:amd64 (1.47.2-3+b7) ...
+Step #0: Setting up libgomp1:amd64 (14.2.0-19) ...
+Step #0: Setting up bzip2 (1.0.8-6) ...
+Step #0: Setting up libsframe1:amd64 (2.44-3) ...
+Step #0: Setting up libelf1t64:amd64 (0.192-4) ...
+Step #0: Setting up libjansson4:amd64 (2.14-2+b3) ...
+Step #0: Setting up libkrb5support0:amd64 (1.21.3-5) ...
+Step #0: Setting up libsasl2-modules-db:amd64 (2.1.28+dfsg1-9) ...
+Step #0: Setting up libcap2-bin (1:2.75-10+b3) ...
+Step #0: Setting up rpcsvc-proto (1.4.3-1) ...
+Step #0: Setting up make (4.4.1-2) ...
+Step #0: Setting up libmpfr6:amd64 (4.2.2-1) ...
+Step #0: Setting up xz-utils (5.8.1-1) ...
+Step #0: update-alternatives: using /usr/bin/xz to provide /usr/bin/lzma (lzma) in auto mode
+Step #0: update-alternatives: warning: skip creation of /usr/share/man/man1/lzma.1.gz because associated file /usr/share/man/man1/xz.1.gz (of link group lzma) doesn't exist
+Step #0: update-alternatives: warning: skip creation of /usr/share/man/man1/unlzma.1.gz because associated file /usr/share/man/man1/unxz.1.gz (of link group lzma) doesn't exist
+Step #0: update-alternatives: warning: skip creation of /usr/share/man/man1/lzcat.1.gz because associated file /usr/share/man/man1/xzcat.1.gz (of link group lzma) doesn't exist
+Step #0: update-alternatives: warning: skip creation of /usr/share/man/man1/lzmore.1.gz because associated file /usr/share/man/man1/xzmore.1.gz (of link group lzma) doesn't exist
+Step #0: update-alternatives: warning: skip creation of /usr/share/man/man1/lzless.1.gz because associated file /usr/share/man/man1/xzless.1.gz (of link group lzma) doesn't exist
+Step #0: update-alternatives: warning: skip creation of /usr/share/man/man1/lzdiff.1.gz because associated file /usr/share/man/man1/xzdiff.1.gz (of link group lzma) doesn't exist
+Step #0: update-alternatives: warning: skip creation of /usr/share/man/man1/lzcmp.1.gz because associated file /usr/share/man/man1/xzcmp.1.gz (of link group lzma) doesn't exist
+Step #0: update-alternatives: warning: skip creation of /usr/share/man/man1/lzgrep.1.gz because associated file /usr/share/man/man1/xzgrep.1.gz (of link group lzma) doesn't exist
+Step #0: update-alternatives: warning: skip creation of /usr/share/man/man1/lzegrep.1.gz because associated file /usr/share/man/man1/xzegrep.1.gz (of link group lzma) doesn't exist
+Step #0: update-alternatives: warning: skip creation of /usr/share/man/man1/lzfgrep.1.gz because associated file /usr/share/man/man1/xzfgrep.1.gz (of link group lzma) doesn't exist
+Step #0: Setting up libquadmath0:amd64 (14.2.0-19) ...
+Step #0: Setting up libp11-kit0:amd64 (0.25.5-3) ...
+Step #0: Setting up libunistring5:amd64 (1.3-2) ...
+Step #0: Setting up libmpc3:amd64 (1.3.1-1+b3) ...
+Step #0: Setting up libmnl0:amd64 (1.0.5-3) ...
+Step #0: Setting up libatomic1:amd64 (14.2.0-19) ...
+Step #0: Setting up patch (2.8-2) ...
+Step #0: Setting up libk5crypto3:amd64 (1.21.3-5) ...
+Step #0: Setting up libxtables12:amd64 (1.8.11-2) ...
+Step #0: Setting up libsasl2-2:amd64 (2.1.28+dfsg1-9) ...
+Step #0: Setting up libnghttp3-9:amd64 (1.8.0-1) ...
+Step #0: Setting up libubsan1:amd64 (14.2.0-19) ...
+Step #0: Setting up perl-modules-5.40 (5.40.1-6) ...
+Step #0: Setting up libhwasan0:amd64 (14.2.0-19) ...
+Step #0: Setting up libcrypt-dev:amd64 (1:4.4.38-1) ...
+Step #0: Setting up libasan8:amd64 (14.2.0-19) ...
+Step #0: Setting up libtasn1-6:amd64 (4.20.0-2) ...
+Step #0: Setting up libkrb5-3:amd64 (1.21.3-5) ...
+Step #0: Setting up libssh2-1t64:amd64 (1.11.1-1) ...
+Step #0: Setting up libtsan2:amd64 (14.2.0-19) ...
+Step #0: Setting up libbinutils:amd64 (2.44-3) ...
+Step #0: Setting up libisl23:amd64 (0.27-1) ...
+Step #0: Setting up libc-dev-bin (2.41-12+deb13u1) ...
+Step #0: Setting up libcc1-0:amd64 (14.2.0-19) ...
+Step #0: Setting up libldap2:amd64 (2.6.10+dfsg-1) ...
+Step #0: Setting up libbpf1:amd64 (1:1.5.0-3) ...
+Step #0: Setting up liblsan0:amd64 (14.2.0-19) ...
+Step #0: Setting up libitm1:amd64 (14.2.0-19) ...
+Step #0: Setting up libctf0:amd64 (2.44-3) ...
+Step #0: Setting up libidn2-0:amd64 (2.3.8-2) ...
+Step #0: Setting up libperl5.40:amd64 (5.40.1-6) ...
+Step #0: Setting up perl (5.40.1-6) ...
+Step #0: Setting up libgprofng0:amd64 (2.44-3) ...
+Step #0: Setting up libgssapi-krb5-2:amd64 (1.21.3-5) ...
+Step #0: Setting up cpp-14-x86-64-linux-gnu (14.2.0-19) ...
+Step #0: Setting up libdpkg-perl (1.22.21) ...
+Step #0: Setting up cpp-14 (14.2.0-19) ...
+Step #0: Setting up libc6-dev:amd64 (2.41-12+deb13u1) ...
+Step #0: Setting up libgcc-14-dev:amd64 (14.2.0-19) ...
+Step #0: Setting up libstdc++-14-dev:amd64 (14.2.0-19) ...
+Step #0: Setting up binutils-x86-64-linux-gnu (2.44-3) ...
+Step #0: Setting up cpp-x86-64-linux-gnu (4:14.2.0-1) ...
+Step #0: Setting up libgnutls30t64:amd64 (3.8.9-3+deb13u2) ...
+Step #0: Setting up libtirpc3t64:amd64 (1.3.6+ds-1) ...
+Step #0: Setting up iproute2 (6.15.0-1) ...
+Step #0: debconf: unable to initialize frontend: Dialog
+Step #0: debconf: (TERM is not set, so the dialog frontend is not usable.)
+Step #0: debconf: falling back to frontend: Readline
+Step #0: debconf: unable to initialize frontend: Readline
+Step #0: debconf: (This frontend requires a controlling tty.)
+Step #0: debconf: falling back to frontend: Teletype
+Step #0: debconf: unable to initialize frontend: Teletype
+Step #0: debconf: (This frontend requires a controlling tty.)
+Step #0: debconf: falling back to frontend: Noninteractive
+Step #0: Setting up libpsl5t64:amd64 (0.21.2-1.1+b1) ...
+Step #0: Setting up binutils (2.44-3) ...
+Step #0: Setting up dpkg-dev (1.22.21) ...
+Step #0: Setting up librtmp1:amd64 (2.4+20151223.gitfa8646d.1-2+b5) ...
+Step #0: Setting up cpp (4:14.2.0-1) ...
+Step #0: Setting up gcc-14-x86-64-linux-gnu (14.2.0-19) ...
+Step #0: Setting up gcc-x86-64-linux-gnu (4:14.2.0-1) ...
+Step #0: Setting up libcurl4t64:amd64 (8.14.1-2+deb13u2) ...
+Step #0: Setting up nginx (1.26.3-3+deb13u2) ...
+Step #0: invoke-rc.d: could not determine current runlevel
+Step #0: invoke-rc.d: policy-rc.d denied execution of start.
+Step #0: Setting up gcc-14 (14.2.0-19) ...
+Step #0: Setting up g++-14-x86-64-linux-gnu (14.2.0-19) ...
+Step #0: Setting up g++-x86-64-linux-gnu (4:14.2.0-1) ...
+Step #0: Setting up curl (8.14.1-2+deb13u2) ...
+Step #0: Setting up g++-14 (14.2.0-19) ...
+Step #0: Setting up gcc (4:14.2.0-1) ...
+Step #0: Setting up g++ (4:14.2.0-1) ...
+Step #0: update-alternatives: using /usr/bin/g++ to provide /usr/bin/c++ (c++) in auto mode
+Step #0: Setting up build-essential (12.12) ...
+Step #0: Processing triggers for libc-bin (2.41-12+deb13u1) ...
+Step #0: Removing intermediate container ba9045dac3e5
+Step #0:  ---> 545c33826e44
+Step #0: Step 3/18 : COPY --from=ghcr.io/astral-sh/uv:0.7.20 /uv /uvx /usr/local/bin/
+Step #0: 0.7.20: Pulling from astral-sh/uv
+Step #0: f563f515ce84: Pulling fs layer
+Step #0: 711e40d15079: Pulling fs layer
+Step #0: 711e40d15079: Verifying Checksum
+Step #0: 711e40d15079: Download complete
+Step #0: f563f515ce84: Verifying Checksum
+Step #0: f563f515ce84: Download complete
+Step #0: f563f515ce84: Pull complete
+Step #0: 711e40d15079: Pull complete
+Step #0: Digest: sha256:2fd1b38e3398a256d6af3f71f0e2ba6a517b249998726a64d8cfbe55ab34af5e
+Step #0: Status: Downloaded newer image for ghcr.io/astral-sh/uv:0.7.20
+Step #0:  ---> 8954fb0c9632
+Step #0: Step 4/18 : WORKDIR /app
+Step #0:  ---> Running in bfc95deb0d99
+Step #0: Removing intermediate container bfc95deb0d99
+Step #0:  ---> 4dc781c49fa2
+Step #0: Step 5/18 : COPY config.example.yaml ./config.example.yaml
+Step #0:  ---> a3d193910e6d
+Step #0: Step 6/18 : RUN cp /app/config.example.yaml /app/config.yaml
+Step #0:  ---> Running in 5d1b1f655f36
+Step #0: Removing intermediate container 5d1b1f655f36
+Step #0:  ---> 7fcb08be2348
+Step #0: Step 7/18 : RUN cp /app/config.yaml /app/config.cloudrun.yaml &&     sed -i '0,/type: sqlite/s/type: sqlite/type: postgres/' /app/config.cloudrun.yaml &&     sed -i '0,/connection_string: checkpoints.db/s/connection_string: checkpoints.db/connection_string: $$DEERFLOW_PG_DSN/' /app/config.cloudrun.yaml
+Step #0:  ---> Running in a8ef51695bc4
+Step #0: Removing intermediate container a8ef51695bc4
+Step #0:  ---> 6bd7abea7e2f
+Step #0: Step 8/18 : COPY backend ./backend
+Step #0:  ---> 803ba4ec6fd4
+Step #0: Step 9/18 : COPY skills ./skills
+Step #0:  ---> 84063d577553
+Step #0: Step 10/18 : COPY extensions_config.example.json ./extensions_config.example.json
+Step #0:  ---> 529b939d59b9
+Step #0: Step 11/18 : RUN cp /app/extensions_config.example.json /app/extensions_config.json
+Step #0:  ---> Running in 586fd5e46263
+Step #0: Removing intermediate container 586fd5e46263
+Step #0:  ---> 9c1d4b407b76
+Step #0: Step 12/18 : RUN sh -c "cd backend && uv sync"
+Step #0:  ---> Running in a2a4f7f87852
+Step #0: Using CPython 3.12.13 interpreter at: /usr/local/bin/python3.12
+Step #0: Creating virtual environment at: .venv
+Step #0: Resolved 197 packages in 2ms
+Step #0: Downloading uvloop (4.2MiB)
+Step #0: Downloading sympy (6.0MiB)
+Step #0: Downloading zstandard (5.3MiB)
+Step #0: Downloading kubernetes (1.9MiB)
+Step #0: Downloading pandas (10.4MiB)
+Step #0: Downloading aiohttp (1.7MiB)
+Step #0: Downloading pydantic-core (2.0MiB)
+Step #0: Downloading pillow (6.7MiB)
+Step #0: Downloading primp (3.1MiB)
+Step #0: Downloading pdfminer-six (6.3MiB)
+Step #0: Downloading onnxruntime (12.7MiB)
+Step #0: Downloading pycryptodome (2.2MiB)
+Step #0: Downloading grpcio (6.4MiB)
+Step #0: Downloading grpcio-tools (2.5MiB)
+Step #0: Downloading lxml (5.0MiB)
+Step #0: Downloading brotli (1.4MiB)
+Step #0: Downloading pygments (1.2MiB)
+Step #0: Downloading tiktoken (1.1MiB)
+Step #0: Downloading cryptography (4.3MiB)
+Step #0: Downloading ruff (13.1MiB)
+Step #0: Downloading jsonschema-rs (2.0MiB)
+Step #0: Downloading youtube-transcript-api (2.1MiB)
+Step #0: Downloading magika (14.7MiB)
+Step #0: Downloading pypdfium2 (2.9MiB)
+Step #0: Downloading lark-oapi (6.7MiB)
+Step #0: Downloading openai (1.0MiB)
+Step #0: Downloading volcengine-python-sdk (27.7MiB)
+Step #0: Downloading duckdb (19.5MiB)
+Step #0: Downloading speechrecognition (31.3MiB)
+Step #0: Downloading numpy (15.6MiB)
+Step #0: Downloading psycopg-binary (4.9MiB)
+Step #0:  Downloading tiktoken
+Step #0:  Downloading brotli
+Step #0:  Downloading pygments
+Step #0:  Downloading aiohttp
+Step #0:  Downloading pydantic-core
+Step #0:  Downloading jsonschema-rs
+Step #0:  Downloading youtube-transcript-api
+Step #0:    Building forbiddenfruit==0.1.4
+Step #0:  Downloading pycryptodome
+Step #0:  Downloading kubernetes
+Step #0:  Downloading openai
+Step #0:  Downloading grpcio-tools
+Step #0:  Downloading pypdfium2
+Step #0:  Downloading primp
+Step #0:  Downloading uvloop
+Step #0:  Downloading cryptography
+Step #0:  Downloading psycopg-binary
+Step #0:  Downloading lxml
+Step #0:  Downloading zstandard
+Step #0:  Downloading sympy
+Step #0:  Downloading pdfminer-six
+Step #0:  Downloading grpcio
+Step #0:  Downloading pillow
+Step #0:  Downloading pandas
+Step #0:  Downloading ruff
+Step #0:  Downloading onnxruntime
+Step #0:  Downloading magika
+Step #0:       Built forbiddenfruit==0.1.4
+Step #0:  Downloading numpy
+Step #0:  Downloading duckdb
+Step #0:  Downloading speechrecognition
+Step #0:  Downloading lark-oapi
+Step #0:  Downloading volcengine-python-sdk
+Step #0: Prepared 188 packages in 10.98s
+Step #0: Installed 188 packages in 1.93s
+Step #0:  + agent-sandbox==0.0.19
+Step #0:  + aiohappyeyeballs==2.6.1
+Step #0:  + aiohttp==3.13.3
+Step #0:  + aiosignal==1.4.0
+Step #0:  + aiosqlite==0.22.1
+Step #0:  + annotated-doc==0.0.4
+Step #0:  + annotated-types==0.7.0
+Step #0:  + anthropic==0.84.0
+Step #0:  + anyio==4.12.1
+Step #0:  + attrs==25.4.0
+Step #0:  + azure-ai-documentintelligence==1.0.2
+Step #0:  + azure-core==1.38.0
+Step #0:  + azure-identity==1.25.1
+Step #0:  + beautifulsoup4==4.14.3
+Step #0:  + blockbuster==1.5.26
+Step #0:  + brotli==1.2.0
+Step #0:  + cachetools==7.0.5
+Step #0:  + certifi==2026.1.4
+Step #0:  + cffi==2.0.0
+Step #0:  + charset-normalizer==3.4.4
+Step #0:  + click==8.3.1
+Step #0:  + cloudpickle==3.1.2
+Step #0:  + cobble==0.1.4
+Step #0:  + coloredlogs==15.0.1
+Step #0:  + croniter==6.0.0
+Step #0:  + cryptography==46.0.5
+Step #0:  + ddgs==9.10.0
+Step #0:  + defusedxml==0.7.1
+Step #0:  + distro==1.9.0
+Step #0:  + docstring-parser==0.17.0
+Step #0:  + dotenv==0.9.9
+Step #0:  + duckdb==1.4.4
+Step #0:  + durationpy==0.10
+Step #0:  + et-xmlfile==2.0.0
+Step #0:  + fake-useragent==2.2.0
+Step #0:  + fastapi==0.128.0
+Step #0:  + filetype==1.2.0
+Step #0:  + firecrawl-py==4.13.4
+Step #0:  + flatbuffers==25.12.19
+Step #0:  + forbiddenfruit==0.1.4
+Step #0:  + frozenlist==1.8.0
+Step #0:  + google-auth==2.48.0
+Step #0:  + google-genai==1.65.0
+Step #0:  + googleapis-common-protos==1.72.0
+Step #0:  + grpcio==1.78.0
+Step #0:  + grpcio-health-checking==1.78.0
+Step #0:  + grpcio-tools==1.78.0
+Step #0:  + h11==0.16.0
+Step #0:  + h2==4.3.0
+Step #0:  + hpack==4.1.0
+Step #0:  + html5lib==1.1
+Step #0:  + httpcore==1.0.9
+Step #0:  + httptools==0.7.1
+Step #0:  + httpx==0.28.1
+Step #0:  + httpx-sse==0.4.3
+Step #0:  + humanfriendly==10.0
+Step #0:  + hyperframe==6.1.0
+Step #0:  + idna==3.11
+Step #0:  + importlib-metadata==8.7.1
+Step #0:  + iniconfig==2.3.0
+Step #0:  + isodate==0.7.2
+Step #0:  + jiter==0.12.0
+Step #0:  + jsonpatch==1.33
+Step #0:  + jsonpointer==3.0.0
+Step #0:  + jsonschema==4.26.0
+Step #0:  + jsonschema-rs==0.29.1
+Step #0:  + jsonschema-specifications==2025.9.1
+Step #0:  + kubernetes==35.0.0
+Step #0:  + langchain==1.2.3
+Step #0:  + langchain-anthropic==1.3.4
+Step #0:  + langchain-core==1.2.17
+Step #0:  + langchain-deepseek==1.0.1
+Step #0:  + langchain-google-genai==4.2.1
+Step #0:  + langchain-mcp-adapters==0.2.1
+Step #0:  + langchain-openai==1.1.7
+Step #0:  + langgraph==1.0.10
+Step #0:  + langgraph-api==0.7.65
+Step #0:  + langgraph-checkpoint==4.0.0
+Step #0:  + langgraph-checkpoint-postgres==3.0.4
+Step #0:  + langgraph-checkpoint-sqlite==3.0.3
+Step #0:  + langgraph-cli==0.4.14
+Step #0:  + langgraph-prebuilt==1.0.8
+Step #0:  + langgraph-runtime-inmem==0.26.0
+Step #0:  + langgraph-sdk==0.3.9
+Step #0:  + langsmith==0.6.4
+Step #0:  + lark-oapi==1.5.3
+Step #0:  + lxml==6.0.2
+Step #0:  + magika==0.6.3
+Step #0:  + mammoth==1.11.0
+Step #0:  + markdown-to-mrkdwn==0.3.1
+Step #0:  + markdownify==1.2.2
+Step #0:  + markitdown==0.1.5b1
+Step #0:  + mcp==1.25.0
+Step #0:  + mpmath==1.3.0
+Step #0:  + msal==1.34.0
+Step #0:  + msal-extensions==1.3.1
+Step #0:  + multidict==6.7.1
+Step #0:  + nest-asyncio==1.6.0
+Step #0:  + numpy==2.4.1
+Step #0:  + oauthlib==3.3.1
+Step #0:  + olefile==0.47
+Step #0:  + onnxruntime==1.20.1
+Step #0:  + openai==2.15.0
+Step #0:  + openpyxl==3.1.5
+Step #0:  + opentelemetry-api==1.40.0
+Step #0:  + opentelemetry-exporter-otlp-proto-common==1.40.0
+Step #0:  + opentelemetry-exporter-otlp-proto-http==1.40.0
+Step #0:  + opentelemetry-proto==1.40.0
+Step #0:  + opentelemetry-sdk==1.40.0
+Step #0:  + opentelemetry-semantic-conventions==0.61b0
+Step #0:  + orjson==3.11.5
+Step #0:  + ormsgpack==1.12.1
+Step #0:  + packaging==25.0
+Step #0:  + pandas==3.0.0
+Step #0:  + pdfminer-six==20251230
+Step #0:  + pdfplumber==0.11.9
+Step #0:  + pillow==12.1.1
+Step #0:  + pluggy==1.6.0
+Step #0:  + primp==0.15.0
+Step #0:  + propcache==0.4.1
+Step #0:  + protobuf==6.33.5
+Step #0:  + psycopg==3.3.3
+Step #0:  + psycopg-binary==3.3.3
+Step #0:  + psycopg-pool==3.3.0
+Step #0:  + pyasn1==0.6.2
+Step #0:  + pyasn1-modules==0.4.2
+Step #0:  + pycparser==2.23
+Step #0:  + pycryptodome==3.23.0
+Step #0:  + pydantic==2.12.5
+Step #0:  + pydantic-core==2.41.5
+Step #0:  + pydantic-settings==2.12.0
+Step #0:  + pydub==0.25.1
+Step #0:  + pygments==2.19.2
+Step #0:  + pyjwt==2.10.1
+Step #0:  + pymilvus==2.6.9
+Step #0:  + pypdfium2==5.3.0
+Step #0:  + pytest==9.0.2
+Step #0:  + python-dateutil==2.9.0.post0
+Step #0:  + python-dotenv==1.2.1
+Step #0:  + python-multipart==0.0.22
+Step #0:  + python-pptx==1.0.2
+Step #0:  + python-telegram-bot==22.6
+Step #0:  + pytz==2026.1.post1
+Step #0:  + pyyaml==6.0.3
+Step #0:  + readabilipy==0.3.0
+Step #0:  + referencing==0.37.0
+Step #0:  + regex==2025.11.3
+Step #0:  + requests==2.32.5
+Step #0:  + requests-oauthlib==2.0.0
+Step #0:  + requests-toolbelt==1.0.0
+Step #0:  + rpds-py==0.30.0
+Step #0:  + rsa==4.9.1
+Step #0:  + ruff==0.14.11
+Step #0:  + setuptools==82.0.0
+Step #0:  + six==1.17.0
+Step #0:  + slack-sdk==3.40.1
+Step #0:  + sniffio==1.3.1
+Step #0:  + socksio==1.0.0
+Step #0:  + soupsieve==2.8.1
+Step #0:  + speechrecognition==3.14.5
+Step #0:  + sqlite-vec==0.1.6
+Step #0:  + sse-starlette==2.1.3
+Step #0:  + starlette==0.50.0
+Step #0:  + structlog==25.5.0
+Step #0:  + sympy==1.14.0
+Step #0:  + tavily-python==0.7.17
+Step #0:  + tenacity==9.1.2
+Step #0:  + tiktoken==0.12.0
+Step #0:  + tqdm==4.67.1
+Step #0:  + truststore==0.10.4
+Step #0:  + typing-extensions==4.15.0
+Step #0:  + typing-inspection==0.4.2
+Step #0:  + urllib3==2.6.3
+Step #0:  + uuid-utils==0.13.0
+Step #0:  + uvicorn==0.40.0
+Step #0:  + uvloop==0.22.1
+Step #0:  + volcengine-python-sdk==5.0.5
+Step #0:  + watchfiles==1.1.1
+Step #0:  + webencodings==0.5.1
+Step #0:  + websocket-client==1.9.0
+Step #0:  + websockets==16.0
+Step #0:  + xlrd==2.0.2
+Step #0:  + xlsxwriter==3.2.9
+Step #0:  + xxhash==3.6.0
+Step #0:  + yarl==1.22.0
+Step #0:  + youtube-transcript-api==1.0.3
+Step #0:  + zipp==3.23.0
+Step #0:  + zstandard==0.25.0
+Step #0: Removing intermediate container a2a4f7f87852
+Step #0:  ---> c20ed2cda560
+Step #0: Step 13/18 : COPY docker/nginx/nginx.cloudrun.conf /etc/nginx/nginx.cloudrun.conf
+Step #0:  ---> 6a4d5331bca2
+Step #0: Step 14/18 : COPY scripts/cloudrun-start.sh /app/scripts/cloudrun-start.sh
+Step #0:  ---> c4c1d64a34e8
+Step #0: Step 15/18 : RUN chmod +x /app/scripts/cloudrun-start.sh
+Step #0:  ---> Running in ecc3d985fe12
+Step #0: Removing intermediate container ecc3d985fe12
+Step #0:  ---> 50d18ea4dd2f
+Step #0: Step 16/18 : ENV PORT=8080
+Step #0:  ---> Running in 44b5a51131cf
+Step #0: Removing intermediate container 44b5a51131cf
+Step #0:  ---> 62c2074007f6
+Step #0: Step 17/18 : EXPOSE 8080
+Step #0:  ---> Running in 9e22c7d6abff
+Step #0: Removing intermediate container 9e22c7d6abff
+Step #0:  ---> fd0be39003c2
+Step #0: Step 18/18 : CMD ["/app/scripts/cloudrun-start.sh"]
+Step #0:  ---> Running in 1b774e3f3408
+Step #0: Removing intermediate container 1b774e3f3408
+Step #0:  ---> 547e77301ba3
+Step #0: Successfully built 547e77301ba3
+Step #0: Successfully tagged gcr.io/bytedance-490020/deer-flow-backend:latest
+Finished Step #0
+Starting Step #1
+Step #1: Already have image (with digest): gcr.io/cloud-builders/docker
+Step #1: The push refers to repository [gcr.io/bytedance-490020/deer-flow-backend]
+Step #1: d36c7dbe3893: Preparing
+Step #1: 3d5dc3ce8bb4: Preparing
+Step #1: 36f82ff2fedf: Preparing
+Step #1: 769ae0d6f27b: Preparing
+Step #1: b206b8d3fa0f: Preparing
+Step #1: 6ce1eeffce5b: Preparing
+Step #1: 2f14b38bb3f6: Preparing
+Step #1: 20ab6a582b14: Preparing
+Step #1: 77af1b5f1a9c: Preparing
+Step #1: e5bb3196f0e0: Preparing
+Step #1: 7ce9791a0e41: Preparing
+Step #1: ce5b2e5d4d16: Preparing
+Step #1: e809eb2bcbb0: Preparing
+Step #1: 3be2c98493f1: Preparing
+Step #1: 789d614e27ab: Preparing
+Step #1: c2cad67c34c6: Preparing
+Step #1: 7a589dab7d18: Preparing
+Step #1: a257f20c716c: Preparing
+Step #1: 7ce9791a0e41: Waiting
+Step #1: ce5b2e5d4d16: Waiting
+Step #1: e809eb2bcbb0: Waiting
+Step #1: 3be2c98493f1: Waiting
+Step #1: 789d614e27ab: Waiting
+Step #1: c2cad67c34c6: Waiting
+Step #1: 7a589dab7d18: Waiting
+Step #1: a257f20c716c: Waiting
+Step #1: 36f82ff2fedf: Pushed
+Step #1: b206b8d3fa0f: Pushed
+Step #1: e5bb3196f0e0: Pushed
+Step #1: 3d5dc3ce8bb4: Pushed
+Step #1: 77af1b5f1a9c: Pushed
+Step #1: 6ce1eeffce5b: Pushed
+Step #1: 2f14b38bb3f6: Pushed
+Step #1: 20ab6a582b14: Pushed
+Step #1: 7a589dab7d18: Layer already exists
+Step #1: 789d614e27ab: Layer already exists
+Step #1: d36c7dbe3893: Pushed
+Step #1: a257f20c716c: Layer already exists
+Step #1: c2cad67c34c6: Layer already exists
+Step #1: ce5b2e5d4d16: Pushed
+Step #1: 7ce9791a0e41: Pushed
+Step #1: e809eb2bcbb0: Pushed
+Step #1: 3be2c98493f1: Pushed
+Step #1: 769ae0d6f27b: Pushed
+Step #1: latest: digest: sha256:770107640c0c5f77f5b37b962d5bdd8d814d9c2c707dd276ac1a7768de0d0d69 size: 4084
+Finished Step #1
+Starting Step #2
+Step #2: Already have image (with digest): gcr.io/cloud-builders/gcloud
+Step #2: Deploying container to Cloud Run service [deer-flow-backend] in project [bytedance-490020] region [us-central1]
+Step #2: Deploying new service...
+Step #2: Setting IAM Policy...........done
+Step #2: Creating Revision................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................................done
+Step #2: Routing traffic.....done
+Step #2: Done.
+Step #2: Service [deer-flow-backend] revision [deer-flow-backend-00001-jhw] has been deployed and is serving 100 percent of traffic.
+Step #2: Service URL: https://deer-flow-backend-1079717528757.us-central1.run.app
+Finished Step #2
+PUSH
+Pushing gcr.io/bytedance-490020/deer-flow-backend:latest
+The push refers to repository [gcr.io/bytedance-490020/deer-flow-backend]
+d36c7dbe3893: Preparing
+3d5dc3ce8bb4: Preparing
+36f82ff2fedf: Preparing
+769ae0d6f27b: Preparing
+b206b8d3fa0f: Preparing
+6ce1eeffce5b: Preparing
+2f14b38bb3f6: Preparing
+20ab6a582b14: Preparing
+77af1b5f1a9c: Preparing
+e5bb3196f0e0: Preparing
+7ce9791a0e41: Preparing
+ce5b2e5d4d16: Preparing
+e809eb2bcbb0: Preparing
+3be2c98493f1: Preparing
+789d614e27ab: Preparing
+c2cad67c34c6: Preparing
+7a589dab7d18: Preparing
+a257f20c716c: Preparing
+e809eb2bcbb0: Waiting
+3be2c98493f1: Waiting
+789d614e27ab: Waiting
+c2cad67c34c6: Waiting
+7a589dab7d18: Waiting
+a257f20c716c: Waiting
+7ce9791a0e41: Waiting
+ce5b2e5d4d16: Waiting
+d36c7dbe3893: Layer already exists
+20ab6a582b14: Layer already exists
+b206b8d3fa0f: Layer already exists
+36f82ff2fedf: Layer already exists
+3d5dc3ce8bb4: Layer already exists
+77af1b5f1a9c: Layer already exists
+3be2c98493f1: Layer already exists
+6ce1eeffce5b: Layer already exists
+2f14b38bb3f6: Layer already exists
+769ae0d6f27b: Layer already exists
+e5bb3196f0e0: Layer already exists
+ce5b2e5d4d16: Layer already exists
+789d614e27ab: Layer already exists
+7ce9791a0e41: Layer already exists
+e809eb2bcbb0: Layer already exists
+7a589dab7d18: Layer already exists
+c2cad67c34c6: Layer already exists
+a257f20c716c: Layer already exists
+latest: digest: sha256:770107640c0c5f77f5b37b962d5bdd8d814d9c2c707dd276ac1a7768de0d0d69 size: 4084
+DONE
+------------------------------------------------------------------------------------------------------------------------------
+ID                                    CREATE_TIME                DURATION  SOURCE                                                                                          IMAGES                                               STATUS
+01a99adf-94aa-4727-90df-198b1e2522a2  2026-03-13T03:17:03+00:00  5M27S     gs://bytedance-490020_cloudbuild/source/1773371668.056052-ca8d94b3415d4b508220a5e22389b909.tgz  gcr.io/bytedance-490020/deer-flow-backend (+1 more)  SUCCESS

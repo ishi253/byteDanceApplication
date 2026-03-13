@@ -1,0 +1,79 @@
+name: CI
+
+on:
+  push:
+    branches: [dev, prod]
+  pull_request:
+    branches: [dev, prod]
+    types: [opened, synchronize, reopened, ready_for_review]
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backend:
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+
+      - name: Install backend dependencies
+        working-directory: deer-flow/backend
+        run: uv sync --group dev
+
+      - name: Lint backend
+        working-directory: deer-flow/backend
+        run: make lint
+
+      - name: Run backend tests
+        working-directory: deer-flow/backend
+        run: make test
+
+  frontend:
+    if: github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.26.2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          cache: 'pnpm'
+          cache-dependency-path: 'deer-flow/frontend/pnpm-lock.yaml'
+
+      - name: Install frontend dependencies
+        working-directory: deer-flow/frontend
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint frontend
+        working-directory: deer-flow/frontend
+        run: pnpm lint
+
+      - name: Typecheck frontend
+        working-directory: deer-flow/frontend
+        run: pnpm typecheck
+
+      - name: Build frontend
+        working-directory: deer-flow/frontend
+        run: pnpm build

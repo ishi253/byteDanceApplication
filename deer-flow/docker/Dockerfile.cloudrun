@@ -20,7 +20,8 @@ RUN cp /app/config.example.yaml /app/config.yaml
 # Production config: Postgres checkpointer (connection_string from env DEERFLOW_PG_DSN)
 RUN cp /app/config.yaml /app/config.cloudrun.yaml && \
     sed -i '0,/type: sqlite/s/type: sqlite/type: postgres/' /app/config.cloudrun.yaml && \
-    sed -i '0,/connection_string: checkpoints.db/s/connection_string: checkpoints.db/connection_string: $$DEERFLOW_PG_DSN/' /app/config.cloudrun.yaml
+    sed -i '0,/connection_string: checkpoints.db/s|connection_string: checkpoints.db|connection_string: $DEERFLOW_PG_DSN|' /app/config.cloudrun.yaml
+
 COPY backend ./backend
 COPY skills ./skills
 # Use example so image builds without local extensions_config.json (gitignored)

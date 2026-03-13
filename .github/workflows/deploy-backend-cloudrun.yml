@@ -42,7 +42,5 @@ jobs:
           project_id: bytedance-490020
 
       - name: Build and deploy via Cloud Build
-        working-directory: deer-flow
         run: |
-          gcloud builds submit --config cloudbuild.yaml .
-
+          gcloud builds submit --config deer-flow/cloudbuild.yaml .
