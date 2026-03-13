@@ -4,7 +4,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-A **Go-to-Market Research Agent** built on ByteDance's **DeerFlow** (open-source SuperAgent/LangGraph framework). The agent produces structured market intelligence reports (TAM/SAM/SOM, competitive analysis, confidence scores) using Tavily for web search and DeepSeek for LLM reasoning. ModelArk-ready: one config change in `deer-flow/config.yaml` swaps to ModelArk endpoints.
+**Meridian** — a **Go-to-Market Research Agent** built on ByteDance's **DeerFlow** (open-source SuperAgent/LangGraph framework). The agent produces structured market intelligence reports (TAM/SAM/SOM, competitive analysis, confidence scores) using Tavily for web search and DeepSeek for LLM reasoning. ModelArk-ready: one config change in `deer-flow/config.yaml` swaps to ModelArk endpoints.
+
+**Live deployment**: Backend on Cloud Run (`deer-flow-backend`, `us-central1`, GCP project `bytedance-490020`) | Frontend on Vercel (`byte-dance-application.vercel.app`).
 
 All application code lives inside `deer-flow/`. The root contains `README.md`, `plan.md`, and this file.
 
@@ -60,8 +62,8 @@ ThreadData → Uploads → Sandbox → DanglingToolCall → Summarization
 - `agents/memory/` — Per-thread LLM-extracted fact storage with 30s debounced writes
 - `gateway/` — FastAPI REST API with 6 routers (models, skills, memory, uploads, artifacts, MCP)
 - `sandbox/` — Abstract `Sandbox` interface with `LocalSandboxProvider` and Docker-based `AioSandboxProvider`; virtual paths `/mnt/user-data/` ↔ `backend/.deer-flow/threads/{id}/user-data/`
-- `community/` — Plugin tools: `tavily/`, `jina_ai/`, `firecrawl/`, `rag_bm25/`, `rag_milvus/`
-- `subagents/` — Background thread pool (3 workers, 15-min timeout) for task delegation
+- `community/` — Plugin tools: `tavily/`, `jina_ai/`, `firecrawl/`, `rag_bm25/`, `rag_milvus/`, `fact_check/`, `structured_data/`, `mermaid_validate/`
+- `subagents/` — Background thread pool (3 workers, 15-min timeout) for task delegation; includes `builtins/fact_check_reviewer.py` for report verification
 - `mcp/` — Model Context Protocol server integration
 - `reflection/` — Dynamic class/variable resolution (`resolve_variable`, `resolve_class`) used throughout config
 
@@ -90,13 +92,27 @@ Config resolution order: explicit arg → `DEER_FLOW_CONFIG_PATH` env var → cu
 ### GTM Customizations
 
 - **Skill**: `deer-flow/skills/public/gtm_research/SKILL.md` — triggers on GTM/market research queries; defines report structure (TAM/SAM/SOM, competitive landscape, confidence scoring, citation tracking)
-- **Frontend**: GTM branding in landing page hero, example topics, "How it works" section, footer badge
+- **Frontend**: Meridian/GTM branding in landing page hero, example topics, "How it works" section, footer badge
 - **RAG**: BM25 tools (`rag_ingest_uploads`, `rag_search`) and Milvus vector tools (`rag_ingest_uploads_vector`, `rag_search_vector`) for uploaded PDF analysis
+- **Fact-checking**: `store_data_point`, `fact_check`, `get_sourced_data` tools in `community/fact_check/` — per-data-point provenance, automated contradiction/staleness/outlier detection. `fact_check_reviewer` subagent verifies entire reports.
+- **Structured data**: `extract_structured_data`, `list_uploaded_data_files` tools in `community/structured_data/` — parse CSV/XLSX uploads into typed columns
+- **Mermaid validation**: `validate_mermaid_syntax` tool in `community/mermaid_validate/` — syntax-check diagrams before rendering
+- **UI-preserving summarization**: `UiPreservingSummarizationMiddleware` in `agents/middlewares/` — compresses long conversations for the LLM while keeping full message history in the UI
 
 ### ModelArk Migration
 
 To switch from DeepSeek API to ModelArk: update `deer-flow/config.yaml` under `models` — change `base_url` to ModelArk endpoint and `api_key` to `$MODELARK_API_KEY`. No code changes needed.
 
-## CI
+## CI/CD
 
-GitHub Actions (`.github/workflows/backend-unit-tests.yml`) runs `uv sync --group dev && make lint && make test` in `backend/` on PRs. Backend tests must pass before merging.
+Three GitHub Actions workflows:
+
+- **`backend-unit-tests.yml`** — runs `ruff lint` + `pytest` (~277 tests) in `backend/` on PRs. Backend tests must pass before merging.
+- **`frontend-ci.yml`** — runs `pnpm lint` + `pnpm typecheck` + `pnpm build` in `frontend/` on PRs.
+- **`deploy-backend-cloudrun.yml`** — on push to `prod`, runs `gcloud builds submit` to build and deploy to Cloud Run.
+
+## Deployment
+
+- **Backend**: Cloud Run service `deer-flow-backend` in `us-central1` (GCP project `bytedance-490020`). Built via `docker/Dockerfile.cloudrun` + `cloudbuild.yaml`. Secrets (`TAVILY_API_KEY`, `DEEPSEEK_API_KEY`, `DEERFLOW_PG_DSN`) injected from GCP Secret Manager.
+- **Frontend**: Vercel at `byte-dance-application.vercel.app`.
+- **Docker dev**: `docker/docker-compose-dev.yaml` orchestrates all services locally with hot reload.
